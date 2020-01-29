@@ -1,6 +1,7 @@
 const express = require('express');
 const cors  = require('cors');
 require('isomorphic-unfetch');
+let dotenv = require('dotenv').config()
 
 let app = express();
 
@@ -8,8 +9,9 @@ app.use(cors());
 
 app.get('/', (req, res) => {
     //  res.send('hi there hello');
-     res.redirect('/apps');
+     res.redirect('/api');
 });
+app.get('/favicon.ico', (req, res) => res.status(204));
 
 async function fetchData(endpoint) {
     console.log('fetching data from '+endpoint)
@@ -34,23 +36,8 @@ app.get('/bible/:book/:chapter?/:verse?', async (req, res) => {
     res.json({answer: fetchedData});
 });
 
-app.get('/apps', (req, res) => {
-    res.json({apps: [
-        {id: 1, name: 'Froot Loops'},
-        {id: 2, name: 'Joust Adhere'},
-        {id: 3, name: 'Varden Lands'},
-        {id: 4, name: 'Moors Moors'}
-    ]});
-})
+app.use('/api', require('./routes/api'));
 
-app.use('/county', (req, res, next)=>{
-    countyMiddleware(req, res,next)
-})
-
-function countyMiddleware(req,res,next) {
-    res.send('You are viewing the county middleware')
-    next()
-}
 
 
 
