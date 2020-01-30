@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router()
-let {fetchAL, fetchAS, fetchSP, fetchRDT} = require('../../middleware/county/stockstatus')
+let {fetchAL, fetchAS, fetchSP, fetchRDT, fetchAllSS} = require('../../middleware/county/stockstatus')
 
 router.get('/', (req, res) => {
     res.send("StockStatus API docs here")
@@ -27,6 +27,12 @@ router.get('/sp/:ou?/:level?/:pe?', async (req, res) => {
 router.get('/rdt/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
     let fetchedData = await fetchRDT(ou,level,pe)
+    res.json({ fetchedData});
+});
+
+router.get('/all/:ou?/:level?/:pe?', async (req, res) => {
+    let {ou, level, pe } = req.params
+    let fetchedData = await fetchAllSS(ou,level,pe)
     res.json({ fetchedData});
 });
 
