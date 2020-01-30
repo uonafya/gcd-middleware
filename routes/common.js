@@ -1,49 +1,49 @@
-const express = require('express');
-const router = express.Router()
-const {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults} = require('../middleware/common')
+let express = require('express');
+let router = express.Router()
+let {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults} = require('../middleware/common')
 
 router.get('/', (req, res) => {
     res.send("Common API docs here")
 })
 
 router.get('/defaults', async (req, res) => {
-    let fetchedData = await fetchDefaults()
-    res.json({answer: fetchedData});
+    letfetchedData = await fetchDefaults()
+    res.json({fetchedData});
 });
 
 router.get('/counties', async (req, res) => {
-    let fetchedData = await fetchCounties()
-    res.json({answer: fetchedData});
+    letfetchedData = await fetchCounties()
+    res.json({fetchedData});
 });
 
 router.get('/subcounties', async (req, res) => {
-    let fetchedData = await fetchSubcounties()
-    res.json({answer: fetchedData});
+    letfetchedData = await fetchSubcounties()
+    res.json({fetchedData});
 });
 
 router.get('/wards', async (req, res) => {
-    let fetchedData = await fetchWards()
-    res.json({answer: fetchedData});
+    letfetchedData = await fetchWards()
+    res.json({fetchedData});
 });
 
 router.get('/facilities', async (req, res) => {
-    let fetchedData = await fetchFacilities()
-    res.json({answer: fetchedData});
+    letfetchedData = await fetchFacilities()
+    res.json({fetchedData});
 });
 
 router.get('/commodities', async (req, res) => {
-    let fetchedData = await fetchCommodities()
-    res.json({answer: fetchedData});
+    letfetchedData = await fetchCommodities()
+    res.json({fetchedData});
 });
 
 router.get('/community-units', async (req, res) => {
-    let fetchedData = await fetchCUs()
-    res.json({answer: fetchedData});
+    letfetchedData = await fetchCUs()
+    res.json({fetchedData});
 });
 
 router.get('/mfl-codes', async (req, res) => {
-    let fetchedData = await fetchMFLcodes()
-    res.json({answer: fetchedData});
+    letfetchedData = await fetchMFLcodes()
+    res.json({fetchedData});
 });
 
 module.exports = router;

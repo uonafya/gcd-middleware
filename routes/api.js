@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router()
+let express = require('express');
+let router = express.Router()
 
 router.get('/', (req, res) => {
     res.send("API docs here")
@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 
 router.use('/common', require('./common'))
 router.use('/dashboard', require('./dashboard'))
-// router.use('/county', require('./county/index'))
+router.use('/county', require('./county/index'))
 // router.use('/national', require('./national/index'))
 
 module.exports = router;

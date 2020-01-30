@@ -1,7 +1,7 @@
 let endpoints = require('../static/endpoints')
-let justFetch = require('../utils/justFetch')
+let {justFetch} = require('../utils/index')
 
-const fetchDefaults = async () => {
+let fetchDefaults = async () => {
     let url = endpoints.filter(ept => ept.id == "all__user_details")[0].url
     try {
         let sc = await justFetch(url)
@@ -11,7 +11,7 @@ const fetchDefaults = async () => {
     }
 }
 
-const fetchCounties = async () => {
+let fetchCounties = async () => {
     let url = endpoints.filter(ept => ept.id == "all__counties_list")[0].url
     try {
         let sc = await justFetch(url)
@@ -21,7 +21,7 @@ const fetchCounties = async () => {
     }
 }
 
-const fetchSubcounties = async () => {
+let fetchSubcounties = async () => {
     let url = endpoints.filter(ept => ept.id == "all__subcounties_list")[0].url
     try {
         let sc = await justFetch(url)
@@ -31,7 +31,7 @@ const fetchSubcounties = async () => {
     }
 }
 
-const fetchWards = async () => {
+let fetchWards = async () => {
     let url = endpoints.filter(ept => ept.id == "all__wards_list")[0].url
     try {
         let sc = await justFetch(url)
@@ -41,7 +41,7 @@ const fetchWards = async () => {
     }
 }
 
-const fetchFacilities = async () => {
+let fetchFacilities = async () => {
     let url = endpoints.filter(ept => ept.id == "all__facilities_list")[0].url
     try {
         let sc = await justFetch(url)
@@ -51,7 +51,7 @@ const fetchFacilities = async () => {
     }
 }
 
-const fetchCUs = async () => {
+let fetchCUs = async () => {
     let url = endpoints.filter(ept => ept.id == "all__cus_list")[0].url
     try {
         let sc = await justFetch(url)
@@ -61,7 +61,7 @@ const fetchCUs = async () => {
     }
 }
 
-const fetchMFLcodes = async () => {
+let fetchMFLcodes = async () => {
     let url = endpoints.filter(ept => ept.id == "all__cus_list")[0].url
     try {
         let sc = await justFetch(url)
@@ -71,7 +71,7 @@ const fetchMFLcodes = async () => {
     }
 }
 
-const fetchCommodities = async () => {
+let fetchCommodities = async () => {
     let url = endpoints.filter(ept => ept.id == "all__commodities")[0].url
     try {
         let sc = await justFetch(url)
