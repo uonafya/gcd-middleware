@@ -10,6 +10,6 @@ router.get('/', (req, res) => {
 router.use('/common', require('./common'))
 router.use('/dashboard', require('./dashboard'))
 router.use('/county', require('./county/index'))
-// router.use('/national', require('./national/index'))
+router.use('/national', require('./national/index'))
 
 module.exports = router;
