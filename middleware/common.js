@@ -62,7 +62,7 @@ let fetchCUs = async () => {
 }
 
 let fetchMFLcodes = async () => {
-    let url = endpoints.filter(ept => ept.id == "all__cus_list")[0].url
+    let url = endpoints.filter(ept => ept.id == "all__mfl_codes")[0].url
     try {
         let sc = await justFetch(url)
         return sc
