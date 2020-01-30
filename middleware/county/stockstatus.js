@@ -7,7 +7,6 @@ let fetchAS = async (ou,level,pe) => {
     let query = {pe, ou, level}
     try {
         let final_url = appendQueriesToUrl(url, query, defaults)
-        console.log("final_url = "+final_url)
         let sc = await justFetch(final_url)
         return sc
     } catch (er) {
@@ -22,7 +21,6 @@ let fetchAL = async (ou,level,pe) => {
     let query = {pe, ou, level}
     try {
         let final_url = appendQueriesToUrl(url, query, defaults)
-        console.log("final_url = "+final_url)
         let sc = await justFetch(final_url)
         return sc
     } catch (er) {
@@ -37,7 +35,6 @@ let fetchSP = async (ou,level,pe) => {
     let query = {pe, ou, level}
     try {
         let final_url = appendQueriesToUrl(url, query, defaults)
-        console.log("final_url = "+final_url)
         let sc = await justFetch(final_url)
         return sc
     } catch (er) {
@@ -52,7 +49,6 @@ let fetchRDT = async (ou,level,pe) => {
     let query = {pe, ou, level}
     try {
         let final_url = appendQueriesToUrl(url, query, defaults)
-        console.log("final_url = "+final_url)
         let sc = await justFetch(final_url)
         return sc
     } catch (er) {
@@ -68,7 +64,6 @@ let fetchAllSS = async (ou,level,pe) => {
     let query = {pe, ou, level}
     try {
         let final_url = appendQueriesToUrl(url, query, defaults)
-        console.log("final_url = "+final_url)
         let sc = await justFetch(final_url)
         return sc
     } catch (er) {

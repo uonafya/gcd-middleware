@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
 router.get('/completeness/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let fetchedData = await fetchCompleteness(ou,level,pe)
+    let fetchedData = await fetchCompleteness(ou,level,pe) 
     res.json({ fetchedData});
 });
 

@@ -90,7 +90,7 @@ let endpoints = [
     "name": "MOS by commodity",
     "id": "all__mos_by_commodity",
     "url": `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:HfGVoCZAwtd;nK8sqMAeQHY;ZcngDQJKiEg;wOKbEd8Dbi3;lHPLS1G5CUc;SSARcWY2Ge1;AX1co0SXobM;UUNwkYQhYgX`,
-    "Filters": "LAST_MONTH",
+    "default_period": "LAST_MONTH",
     "default_org_unit": "HfVjCurKxh2",
     "default_org_unit_level": "",
     "Notes": ""
