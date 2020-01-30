@@ -5,19 +5,18 @@ let apicache = require('apicache')          // https://github.com/kwhitley/apica
 let dotenv = require('dotenv').config()     //https://www.npmjs.com/package/dotenv
 let cache = apicache.middleware
 
-
 let app = express();
-
 app.use(cache('3 days')); // works brilliantly. // LocalForage would be an alternative that supports IndexedDB
-
 app.use(cors());
 
 app.get('/', async(req, res) => {
     res.redirect('/api');
 });
+
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.use('/api', require('./routes/api'));
+
 
 
 
