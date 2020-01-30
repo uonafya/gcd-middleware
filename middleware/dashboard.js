@@ -1,17 +1,20 @@
 let endpoints = require('../static/endpoints')
-let justFetch = require('../utils/justFetch')
+let {justFetch, appendQueriesToUrl} = require('../utils/index')
 
-const fetchStockStatus = async (ou,level,pe) => {
-    let url = endpoints.filter(ept => ept.id == "all__stock_status")[0].url
+let fetchStockStatus = async (ou,level,pe) => {
     try {
-        let sc = await justFetch(url)
+        let {url, default_org_unit, default_period, default_org_unit_level} = endpoints.filter(ept => ept.id == "all__stock_status")[0]
+        let query = {pe, ou, level}
+        let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
+        let final_url = appendQueriesToUrl(url, query, defaults)
+        let sc = await justFetch(final_url)
         return sc
     } catch (er) {
         return {error: true, ...er}
     }
 }
 
-const fetchMOS = async () => {
+let fetchMOS = async () => {
     let url = endpoints.filter(ept => ept.id == "all__mos_by_commodity")[0].url
     try {
         let sc = await justFetch(url)
@@ -21,7 +24,7 @@ const fetchMOS = async () => {
     }
 }
 
-const fetchFacilityStockStatus = async () => {
+let fetchFacilityStockStatus = async () => {
     let url = endpoints.filter(ept => ept.id == "all__mos_by_commodity")[0].url
     try {
         let sc = await justFetch(url)

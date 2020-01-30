@@ -1,11 +1,14 @@
 ### Purpose
 
-What this server does is, it sits between DHIS2 (data source) and the frontend. It is a middleware that handles:
+This is an ExpressJS API service **interface** that sits between DHIS2 (data source) and the frontend. It is a middleware that handles:
 
-- Simplifying requests to DHIS API
+- Simplifying requests & queries to DHIS API
 - Cacheing/storage of commonly-used & large data chunks
 - Pagination (splitting large data chunks for faster UI/frontend)
-- Redundancy with cached data
+- Redundancy with cached data (limit calls to DHIS API)
+- Offers options to replicate/extend use & implementation of the dashboard. Simply change the constants & configs & apply to another source program/DHIS2 instance
+
+Eventually, this will be shipped along with with a React dashboard & packaged into a DHIS2 app. It will run [concurrently](https://github.com/kimmobrunfeldt/concurrently) with the React dashboard
 
 ---
 
