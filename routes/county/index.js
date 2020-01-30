@@ -11,8 +11,8 @@ router.use('/stockstatus', require('./stockstatus'))
 router.use('/dataquality', require('./dataquality'))
 router.use('/reportingratetrend', require('./reportingratetrend'))
 router.use('/supplychain', require('./supplychain'))
-// router.use('/hffollowup', require('./hffollowup'))
-// router.use('/accountability', require('./accountability'))
-// router.use('/issuesreceipts', require('./issuesreceipts'))
+router.use('/hhfollowup', require('./hhfollowup'))
+router.use('/accountability', require('./accountability'))
+router.use('/issuesvsrecipts', require('./issuesvsrecipts'))
 
 module.exports = router;
