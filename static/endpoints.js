@@ -169,23 +169,25 @@ let endpoints = [
     "level": "County",
     "name": "Reporting Rate Trend",
     "id": "county__reporting_rate_trend",
-    "url": `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:JPaviRmSsJW.REPORTING_RATE`,
-    "Filters": "LAST_12_MONTHS",
+    "url": `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:JPaviRmSsJW.REPORTING_RATE;JPaviRmSsJW.REPORTING_RATE_ON_TIME`,
+    "default_period": "LAST_12_MONTHS",
     "default_org_unit": "HfVjCurKxh2",
     "default_org_unit_level": 5,
     "Notes": ""
   },
-  {
-    "page": "Reporting Rate",
-    "level": "County",
-    "name": "Reporting Rate Trend(on time)",
-    "id": "county__on-time_reporting_rate_trend",
-    "url": `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:JPaviRmSsJW.REPORTING_RATE_ON_TIME`,
-    "default_period": "LAST_12_MONTHS",
-    "default_org_unit": "hfVjCurKxh2",
-    "default_org_unit_level": 5,
-    "Notes": ""
-  },
+{
+  "page" : "Reporting Rate",
+  "level" :  "County",
+  "name" : "Reporting Rate Trend (latest subcounty)",
+  "id" : "county__latest_reporting_rate_subcounty",
+  "url" : `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:JPaviRmSsJW.REPORTING_RATE`,
+  "default_period" : "LAST_MONTH",
+  "default_org_unit" : "HfVjCurKxh2",
+  "default_org_unit_level" : 3,
+  "Notes" : ""
+  
+},
+  
   {
     "page": "Reporting Rate",
     "level": "County",
