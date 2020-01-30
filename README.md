@@ -23,6 +23,12 @@ $ git clone https://github.com/uonafya/gcd-middleware
 $ cd gcd-middleware
 ```
 
+2. Create a ``` bash .env ``` using the example file and edit it accordingly
+``` bash
+$ cp .env.example .env
+$ vi .env
+```
+
 3. Install dependencies
 ``` bash
 $ npm install

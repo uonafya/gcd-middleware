@@ -7,42 +7,42 @@ router.get('/', (req, res) => {
 })
 
 router.get('/defaults', async (req, res) => {
-    letfetchedData = await fetchDefaults()
+    let fetchedData = await fetchDefaults()
     res.json({fetchedData});
 });
 
 router.get('/counties', async (req, res) => {
-    letfetchedData = await fetchCounties()
+    let fetchedData = await fetchCounties()
     res.json({fetchedData});
 });
 
 router.get('/subcounties', async (req, res) => {
-    letfetchedData = await fetchSubcounties()
+    let fetchedData = await fetchSubcounties()
     res.json({fetchedData});
 });
 
 router.get('/wards', async (req, res) => {
-    letfetchedData = await fetchWards()
+    let fetchedData = await fetchWards()
     res.json({fetchedData});
 });
 
 router.get('/facilities', async (req, res) => {
-    letfetchedData = await fetchFacilities()
+    let fetchedData = await fetchFacilities()
     res.json({fetchedData});
 });
 
 router.get('/commodities', async (req, res) => {
-    letfetchedData = await fetchCommodities()
+    let fetchedData = await fetchCommodities()
     res.json({fetchedData});
 });
 
 router.get('/community-units', async (req, res) => {
-    letfetchedData = await fetchCUs()
+    let fetchedData = await fetchCUs()
     res.json({fetchedData});
 });
 
 router.get('/mfl-codes', async (req, res) => {
-    letfetchedData = await fetchMFLcodes()
+    let fetchedData = await fetchMFLcodes()
     res.json({fetchedData});
 });
 
