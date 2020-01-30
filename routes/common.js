@@ -1,9 +1,11 @@
 let express = require('express');
 let router = express.Router()
+let {getApiDocs} = require('../utils/index')
 let {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults} = require('../middleware/common')
 
 router.get('/', (req, res) => {
-    res.send("Common API docs here")
+    let docs = getApiDocs(router)
+    res.json(docs)
 })
 
 router.get('/defaults', async (req, res) => {

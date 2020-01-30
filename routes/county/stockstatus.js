@@ -1,9 +1,11 @@
 let express = require('express');
 let router = express.Router()
+let {getApiDocs} = require('../../utils/index')
 let {fetchAL, fetchAS, fetchSP, fetchRDT} = require('../../middleware/county/stockstatus')
 
 router.get('/', (req, res) => {
-    res.send("StockStatus API docs here")
+    let docs = getApiDocs(router)
+    res.json(docs)
 })
 
 router.get('/al/:ou?/:level?/:pe?', async (req, res) => {

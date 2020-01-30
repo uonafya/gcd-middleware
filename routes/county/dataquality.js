@@ -1,9 +1,11 @@
 let express = require('express');
 let router = express.Router()
+let {getApiDocs} = require('../../utils/index')
 let {fetchCompleteness, fetchComparison, fetchConcordance, fetchConsistency} = require('../../middleware/county/dataquality')
 
 router.get('/', (req, res) => {
-    res.send("DataQuality API docs here")
+    let docs = getApiDocs(router)
+    res.json(docs)
 })
 
 router.get('/completeness/:ou?/:level?/:pe?', async (req, res) => {

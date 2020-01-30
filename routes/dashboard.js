@@ -1,9 +1,11 @@
 let express = require('express');
 let router = express.Router()
+let {getApiDocs} = require('../utils/index')
 let {fetchStockStatus, fetchMOS, fetchFacilityStockStatus} = require('../middleware/dashboard')
 
 router.get('/', (req, res) => {
-    res.send("Dashboard API docs here")
+    let docs = getApiDocs(router)
+    res.json(docs)
 })
 
 router.get('/stockstatus/:ou?/:level?/:pe?', async (req, res) => {

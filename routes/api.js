@@ -1,8 +1,10 @@
 let express = require('express');
 let router = express.Router()
+let {getApiDocs} = require('../utils/index')
 
 router.get('/', (req, res) => {
-    res.send("API docs here")
+    let docs = getApiDocs(router)
+    res.json(docs)
 })
 
 router.use('/common', require('./common'))
