@@ -8,7 +8,8 @@ let path = require('path')                  // favicon dependency
 let cache = apicache.middleware
 
 let app = express();
-app.use(cache('3 days')); // works brilliantly. // LocalForage would be an alternative that supports IndexedDB
+const onlyStatus200 = (req, res) => { if(res.statusCode === 200 || res.httpStatusCode === 200 || res.error !== true){ return true }else{ return false } }
+app.use(cache('3 days', onlyStatus200)); // works brilliantly. // LocalForage would be an alternative that supports IndexedDB
 app.use(cors());
 let {getApiDocs} = require('./utils/index')
 
