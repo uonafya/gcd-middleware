@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 router.use('/stockstatus', require('./stockstatus'))
 router.use('/dataquality', require('./dataquality'))
 // router.use('/reportingrate', require('./reportingrate'))
-// router.use('/supplychainperf', require('./supplychainperf'))
+router.use('/supplychain', require('./supplychain'))
 // router.use('/hffollowup', require('./hffollowup'))
 // router.use('/accountability', require('./accountability'))
 // router.use('/issuesreceipts', require('./issuesreceipts'))
