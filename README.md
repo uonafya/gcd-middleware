@@ -61,3 +61,7 @@ The folder structure is as follows:
  ┣ 📜package-lock.json
  ┗ 📜package.json
  ```
+ 
+ 
+## Credits
+Developed and maintained by [USAID HealthIT](https://healthit.uonbi.ac.ke) for the [Ministry of Health](https://health.go.ke)
