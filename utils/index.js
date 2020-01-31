@@ -1,18 +1,26 @@
 let DHIS_USERNAME = process.env.DHIS_USERNAME
 let DHIS_PASSWORD = process.env.DHIS_PASSWORD
+let APP_ENV = process.env.APP_ENV
 
-let justFetch = async (endpoint) => {
+let justFetch = async (endpoint, postoptions) => {
     if(endpoint.search("dataStore") < 1 ){ //do not append this for dataStore requests
         endpoint+="&displayProperty=NAME&outputIdScheme=UID"
     }
     if(endpoint == null || endpoint.length < 4){return {error: true, type: 'url', message: 'Invalid endpoint URL'}}
-
+    let options = postoptions || {}
+    let req_method = options.method || "GET" //PUT //POST //DELETE etc.
     let req_hd = {}
     let headers = {}
-
-    headers.authorization = "Basic "+Buffer.from(DHIS_USERNAME+":"+DHIS_PASSWORD).toString('base64')
+    if(APP_ENV == "dev" || APP_ENV == "development"){
+        headers.authorization = "Basic "+Buffer.from(DHIS_USERNAME+":"+DHIS_PASSWORD).toString('base64')
+    }
     req_hd.headers = headers
-    req_hd.method = "GET"
+    req_hd.method = req_method
+    //body for POST/PUT requests
+    if(req_method != "GET"){
+        req_hd.body = JSON.stringify(options.body) //Stringify here, not in source
+    }
+    //body for POST/PUT requests
     
     try {
         let result = await fetch(endpoint, req_hd)
