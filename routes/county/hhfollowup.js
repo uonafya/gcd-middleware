@@ -8,12 +8,12 @@ router.get('/', (req, res) => {
     res.json(docs)
 })
 
-router.get('/hhfollowupunderstocked/:ou?/:level?/:pe?', async (req, res) => {
+router.get('/understocked/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
     let fetchedData = await fetchhhunderstocked(ou,level,pe)
     res.json({ fetchedData});
 });
-router.get('/hhfollowupoverstocked/:ou?/:level?/:pe?', async (req, res) => {
+router.get('/overstocked/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
     let fetchedData = await fetchhhoverstocked(ou,level,pe)
     res.json({ fetchedData});
