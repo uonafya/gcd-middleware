@@ -56,6 +56,8 @@ The folder structure is as follows:
  ┃ ┣ 📂national
  ┃ ┣ 📜common.js
  ┃ ┗ 📜dashboard.js
+  ┣ 📂utils
+ ┃ ┣ 📜index.js
  ┣ 📜README.md
  ┣ 📜index.js
  ┣ 📜package-lock.json
