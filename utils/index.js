@@ -28,7 +28,7 @@ let appendQueriesToUrl = (url, query, defaults) => {
     let query_append = ``
     if(pe != null && pe != ''){query_append+=`&dimension=pe:${pe}`}else{query_append+=`&dimension=pe:${default_pe}`}
     if(ou != null && ou != ''){query_append+=`&dimension=ou:${ou}`}else{query_append+=`&dimension=ou:${default_ou}`}
-    if(level != null && level != '' && level != 0){query_append+=`;LEVEL-${level}` } else{ if(default_lvl != null && default_lvl != ''){query_append+=`;LEVEL-${default_lvl}`} }
+    if(level != null && level != '' && level != 0 && level != '~'){query_append+=`;LEVEL-${level}` } else{ if(default_lvl != null && default_lvl != '' && default_lvl != '~'){query_append+=`;LEVEL-${default_lvl}`} }
 
     url+=query_append
     return url
