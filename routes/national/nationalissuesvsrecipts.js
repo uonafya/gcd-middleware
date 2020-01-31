@@ -1,9 +1,8 @@
 let express = require('express');
 let router = express.Router()
-let {getApiDocs} = require('../../utils/index')
 let {fetchnationalissuesvsrecipts } = require('../../middleware/national/nationalissuesvsrecipts.js')
 
-router.get(':ou?/:level?/:pe?', async (req, res) => {
+router.get(':ou?/:level?/:pe?', async (req, res) => { //TODO: set constant National OU
     let {ou, level, pe } = req.params
     let fetchedData = await fetchnationalissuesvsrecipts(ou,level,pe)
     res.json({ fetchedData});
