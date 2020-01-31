@@ -2,7 +2,9 @@ let DHIS_USERNAME = process.env.DHIS_USERNAME
 let DHIS_PASSWORD = process.env.DHIS_PASSWORD
 
 let justFetch = async (endpoint) => {
-    endpoint+="&displayProperty=NAME&outputIdScheme=UID"
+    if(endpoint.search("dataStore") < 1 ){ //do not append this for dataStore requests
+        endpoint+="&displayProperty=NAME&outputIdScheme=UID"
+    }
     if(endpoint == null || endpoint.length < 4){return {error: true, type: 'url', message: 'Invalid endpoint URL'}}
 
     let req_hd = {}
@@ -15,6 +17,9 @@ let justFetch = async (endpoint) => {
     try {
         let result = await fetch(endpoint, req_hd)
         let result_json = await result.json()
+        if(result_json.status === "ERROR"){
+            throw result_json
+        }
         return result_json
     } catch (err) {
         return {error: true, ...err}
