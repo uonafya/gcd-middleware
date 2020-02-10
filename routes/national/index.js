@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
     res.json(docs)
 })
 
-router.use('/nationalsummary', require('./nationalsummary'))
+router.use('/summary', require('./nationalsummary'))
 router.use('/allmalariacommodities', require('./allmalariacommodities'))
 router.use('/pendingshipment', require('./pendingshipment'))
-router.use('/nationalissuesvsrecipts', require('./nationalissuesvsrecipts'))
+router.use('/issuesvsrecipts', require('./nationalissuesvsrecipts'))
 
 
 module.exports = router;
