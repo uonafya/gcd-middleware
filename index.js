@@ -1,5 +1,6 @@
 let express = require('express')            // https://expressjs.com/
 let cors  = require('cors');                // https://www.npmjs.com/package/cors
+let compression  = require('compression');                // https://www.npmjs.com/package/compression
 require('isomorphic-unfetch')               // https://www.npmjs.com/package/isomorphic-unfetch
 let apicache = require('apicache')          // https://github.com/kwhitley/apicache
 let dotenv = require('dotenv').config()     // https://www.npmjs.com/package/dotenv
@@ -18,6 +19,7 @@ const onlyStatus200 = (req, res) => {       //only cache successful requests gre
 }
 app.use(cache('3 days', onlyStatus200)); // works brilliantly. // LocalForage would be an alternative that supports IndexedDB
 app.use(cors());
+app.use(compression());
 let {getApiDocs} = require('./utils/index')
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))) // app.get('/favicon.ico', (req, res) => res.status(204));
