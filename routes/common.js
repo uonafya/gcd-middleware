@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router()
 let {getApiDocs} = require('../utils/index')
-let {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults} = require('../middleware/common')
+let {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchMCFfacilities, fetchDefaults} = require('../middleware/common')
 
 router.get('/', (req, res) => {
     let docs = getApiDocs(router)
@@ -45,6 +45,11 @@ router.get('/community-units', async (req, res) => {
 
 router.get('/mfl-codes', async (req, res) => {
     let fetchedData = await fetchMFLcodes()
+    res.json({fetchedData});
+});
+
+router.get('/mcf-facilities', async (req, res) => {
+    let fetchedData = await fetchMCFfacilities()
     res.json({fetchedData});
 });
 

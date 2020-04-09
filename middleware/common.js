@@ -88,4 +88,14 @@ let fetchCommodities = async () => {
     }
 }
 
-module.exports = {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults}
+let fetchMCFfacilities = async () => {
+    let url = endpoints.filter(ept => ept.id == "all__mcf_orgunits")[0].url
+    try {
+        let sc = await justFetch(url)
+        return sc
+    } catch (er) {
+        return {error: true, ...er}
+    }
+}
+
+module.exports = {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchMCFfacilities, fetchDefaults}

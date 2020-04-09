@@ -73,6 +73,15 @@ let endpoints = [
     "Notes": ""
   },
   {
+    "page": "Global",
+    "level": "All",
+    "name": "Facilities assigned MCF",
+    "id": "all__mcf_orgunits",
+    "url": `${DHIS_BASE_API_URL}/dataSets.json?fields=id,name,organisationUnits[id,name,code,level]&filter=id:ilike:JPaviRmSsJW&paging=false`,
+    "Filters": "",
+    "Notes": ""
+  },
+  {
     "page": "Dashboard",
     "level": "All",
     "name": "Stock Status",

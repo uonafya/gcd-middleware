@@ -2,6 +2,7 @@ let express = require('express')            // https://expressjs.com/
 let cors  = require('cors');                // https://www.npmjs.com/package/cors
 let compression  = require('compression');                // https://www.npmjs.com/package/compression
 let helmet  = require('helmet');                // https://www.npmjs.com/package/helmet
+let morgan  = require('morgan');                // https://www.npmjs.com/package/morgan
 require('isomorphic-unfetch')               // https://www.npmjs.com/package/isomorphic-unfetch
 let apicache = require('apicache')          // https://github.com/kwhitley/apicache
 let dotenv = require('dotenv').config()     // https://www.npmjs.com/package/dotenv
@@ -14,6 +15,7 @@ let app = express();
 app.use(cors());
 app.use(compression());
 app.use(helmet());
+app.use(morgan('dev')); //FORMATS: //combined //tiny, common, short, dev
 const onlyStatus200 = (req, res) => {       //only cache successful requests greater than 400 bytes
      if(res.statusCode === 200 && res.get('Content-Length') > 400){
         return true 
