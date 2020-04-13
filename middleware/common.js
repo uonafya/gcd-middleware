@@ -88,4 +88,14 @@ let fetchCommodities = async () => {
     }
 }
 
-module.exports = {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults}
+let fetchOrganisationUnit = async (id) => {
+    try {
+        let url = `${process.env.DHIS_BASE_API_URL}/organisationUnits/${id}.json`
+        let sc = await justFetch(url)
+        return sc
+    } catch (er) {
+        return {error: true, ...er}
+    }
+}
+
+module.exports = {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults, fetchOrganisationUnit}
