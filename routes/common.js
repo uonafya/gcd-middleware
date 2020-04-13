@@ -1,11 +1,7 @@
 let express = require('express');
 let router = express.Router()
 let {getApiDocs} = require('../utils/index')
-<<<<<<< HEAD
-let {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults, fetchOrganisationUnit} = require('../middleware/common')
-=======
-let {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchMCFfacilities, fetchDefaults} = require('../middleware/common')
->>>>>>> 0163550cc17ba4a6faebb3e554781ce0cdcb6b66
+let {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchMCFfacilities, fetchDefaults, fetchOrganisationUnit} = require('../middleware/common')
 
 router.get('/', (req, res) => {
     let docs = getApiDocs(router)
