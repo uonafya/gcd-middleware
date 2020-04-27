@@ -14,20 +14,26 @@ let fetchStockStatus = async (ou,level,pe) => {
     }
 }
 
-let fetchMOS = async () => {
-    let url = endpoints.filter(ept => ept.id == "all__mos_by_commodity")[0].url
+let fetchMOS = async (ou, level, pe) => {
+    let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "all__mos_by_commodity")[0]
+    let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
+    let query = {pe, ou, level}
     try {
-        let sc = await justFetch(url)
+      let final_url = appendQueriesToUrl(url, query, defaults)
+        let sc = await justFetch(final_url)
         return sc
     } catch (er) {
         return {error: true, ...er}
     }
 }
 
-let fetchFacilityStockStatus = async () => {
-    let url = endpoints.filter(ept => ept.id == "all__mos_by_commodity")[0].url
+let fetchFacilityStockStatus = async (ou, level, pe) => {
+    let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "all__stock_status")[0]
+    let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
+    let query = {pe, ou, level}
     try {
-        let sc = await justFetch(url)
+      let final_url = appendQueriesToUrl(url, query, defaults)
+        let sc = await justFetch(final_url)
         return sc
     } catch (er) {
         return {error: true, ...er}
