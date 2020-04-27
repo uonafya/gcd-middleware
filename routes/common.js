@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router()
 let {getApiDocs} = require('../utils/index')
-let {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchMCFfacilities, fetchDefaults, fetchOrganisationUnit} = require('../middleware/common')
+let {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchMCFfacilities, fetchDefaults, fetchOrganisationUnit, fetchExpectedReports} = require('../middleware/common')
 
 router.get('/', (req, res) => {
     let docs = getApiDocs(router)
@@ -57,6 +57,15 @@ router.get('/organisationUnit/:id', async (req, res) => {
 router.get('/mcf-facilities', async (req, res) => {
     let fetchedData = await fetchMCFfacilities()
     res.json({fetchedData});
+});
+
+router.get('/expected-reports/:ou/:pe', async (req, res) => {
+    let {ou, pe } = req.params
+    let defaults = await fetchDefaults() 
+    if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
+    if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
+    let fetchedData = await fetchExpectedReports(ou,pe)
+    res.json({ fetchedData});
 });
 
 module.exports = router;

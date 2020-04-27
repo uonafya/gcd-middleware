@@ -82,6 +82,17 @@ let endpoints = [
     "Notes": ""
   },
   {
+    "page": "Global",
+    "level": "All",
+    "name": "Expected Reports",
+    "id": "all__expected_reports",
+    "url": `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:JPaviRmSsJW.EXPECTED_REPORTS`,
+    "default_period": "LAST_MONTH",
+    "default_org_unit": "HfVjCurKxh2",
+    "Filters": "",
+    "Notes": ""
+  },
+  {
     "page": "Dashboard",
     "level": "All",
     "name": "Stock Status",

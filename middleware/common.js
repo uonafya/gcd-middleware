@@ -1,5 +1,5 @@
 let endpoints = require('../static/endpoints')
-let {justFetch} = require('../utils/index')
+let {justFetch, appendQueriesToUrl} = require('../utils/index')
 
 let fetchDefaults = async () => {
     let date = new Date()
@@ -108,4 +108,19 @@ let fetchMCFfacilities = async () => {
     }
 }
 
-module.exports = {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults, fetchOrganisationUnit, fetchMCFfacilities}
+let fetchExpectedReports = async (ou,pe) => {
+    try {
+        let {url, default_org_unit, default_period} = endpoints.filter(ept => ept.id == "all__expected_reports")[0]
+        let query = {pe, ou}
+        let defaults = {default_pe: default_period, default_ou: default_org_unit}
+        let final_url = appendQueriesToUrl(url, query, defaults)
+        let sc = await justFetch(final_url)
+        let count = 0
+        count = parseInt(sc.rows[0][3]);
+        return count
+    } catch (er) {
+        return {error: true, ...er}
+    }
+}
+
+module.exports = {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults, fetchOrganisationUnit, fetchMCFfacilities, fetchExpectedReports}
