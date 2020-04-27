@@ -59,7 +59,7 @@ router.get('/mcf-facilities', async (req, res) => {
     res.json({fetchedData});
 });
 
-router.get('/expected-reports/:ou/:pe', async (req, res) => {
+router.get('/expected-reports/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, pe } = req.params
     let defaults = await fetchDefaults() 
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}

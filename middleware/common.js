@@ -115,9 +115,10 @@ let fetchExpectedReports = async (ou,pe) => {
         let defaults = {default_pe: default_period, default_ou: default_org_unit}
         let final_url = appendQueriesToUrl(url, query, defaults)
         let sc = await justFetch(final_url)
-        let count = 0
-        count = parseInt(sc.rows[0][3]);
-        return count
+        return sc
+        // let count = 0
+        // count = parseInt(sc.rows[0][3]);
+        // return count
     } catch (er) {
         return {error: true, ...er}
     }
