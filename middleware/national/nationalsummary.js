@@ -7,7 +7,6 @@ let fetchnationalsummary = async (ou,level,pe) => {
     let query = {pe, ou, level}
     try {
         let final_url = appendQueriesToUrl(url, query, defaults)
-        console.log(final_url)
         let sc = await justFetch(final_url)
         return sc
     } catch (er) {
@@ -15,4 +14,17 @@ let fetchnationalsummary = async (ou,level,pe) => {
     }
 }
 
-module.exports = {fetchnationalsummary}
+let fetchkemsasummary = async (pe) => {
+    let {url, default_org_unit, default_period} = endpoints.filter(ept => ept.id == "national__kemsa_summary")[0]
+    let defaults = {default_pe: default_period, default_ou: default_org_unit}
+    let query = {pe, ou}
+    try {
+        let final_url = appendQueriesToUrl(url, query, defaults)
+        let sc = await justFetch(final_url)
+        return sc
+    } catch (er) {
+        return {error: true, ...er}
+    }
+}
+
+module.exports = {fetchnationalsummary, fetchkemsasummary}
