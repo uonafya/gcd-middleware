@@ -9,8 +9,8 @@ router.get(':ou?/:level?/:pe?', async (req, res) => { //TODO: set constant Natio
 });
 
 router.get('kemsasummary/:ou?/:pe?', async (req, res) => { //TODO: set constant National OU
-    let {ou, level, pe } = req.params
-    let fetchedData = await fetchkemsasummary(ou,level,pe)
+    let {ou, pe } = req.params
+    let fetchedData = await fetchkemsasummary(ou,pe)
     res.json({ fetchedData});
 });
 
