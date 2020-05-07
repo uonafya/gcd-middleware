@@ -68,10 +68,14 @@ let fetchCUs = async () => {
     }
 }
 
-let fetchMFLcodes = async () => {
+let fetchMFLcodes = async (id) => {
     let url = endpoints.filter(ept => ept.id == "all__mfl_codes")[0].url
     try {
         let sc = await justFetch(url)
+        if(id && id != null && id!=''){
+          console.log(`${JSON.stringify(sc)}`);
+          sc = sc.organisationUnits.filter(sc_=>sc_.id==id)[0]
+        }
         return sc
     } catch (er) {
         return {error: true, ...er}

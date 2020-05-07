@@ -43,8 +43,9 @@ router.get('/community-units', async (req, res) => {
     res.json({fetchedData});
 });
 
-router.get('/mfl-codes', async (req, res) => {
-    let fetchedData = await fetchMFLcodes()
+router.get('/mfl-codes/:id?', async (req, res) => {
+    const {id} = req.params
+    let fetchedData = await fetchMFLcodes(id)
     res.json({fetchedData});
 });
 
