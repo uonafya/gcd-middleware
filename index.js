@@ -8,7 +8,9 @@ let apicache = require('apicache')          // https://github.com/kwhitley/apica
 let dotenv = require('dotenv').config()     // https://www.npmjs.com/package/dotenv
 let favicon = require('serve-favicon')      // https://expressjs.com/en/resources/middleware/serve-favicon.html
 let path = require('path')                  // favicon dependency
-let cache = apicache.middleware
+let redis = require('redis');
+
+let cache = apicache.options({ redisClient: redis.createClient({db:"4"}) }).middleware
 let PORT = process.env.APP_PORT || 3000
 
 let app = express();
@@ -18,6 +20,7 @@ app.use(helmet());
 app.use(morgan('dev')); //FORMATS: //combined //tiny, common, short, dev
 const onlyStatus200 = (req, res) => {       //only cache successful requests greater than 400 bytes
      if(res.statusCode === 200 && res.get('Content-Length') > 400){
+        console.log(`will be cached...`);
         return true 
     }else{
         return false 
