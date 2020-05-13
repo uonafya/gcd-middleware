@@ -42,7 +42,7 @@ router.get('/commodities', async (req, res) => {
 });
 
 router.get('/community-units/:parent?', async (req, res) => {
-    let fetchedData = await fetchCUs()
+    let fetchedData = await fetchCUs(parent)
     res.json({fetchedData});
 });
 
