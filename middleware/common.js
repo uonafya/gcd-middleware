@@ -28,40 +28,52 @@ let fetchCounties = async () => {
     }
 }
 
-let fetchSubcounties = async () => {
+let fetchSubcounties = async (parent) => {
     let url = endpoints.filter(ept => ept.id == "all__subcounties_list")[0].url
     try {
-        let sc = await justFetch(url)
+		let sc = await justFetch(url)
+		if(parent && parent != null && parent!=''){
+			sc = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
+		}
         return sc
     } catch (er) {
         return {error: true, ...er}
     }
 }
 
-let fetchWards = async () => {
+let fetchWards = async (parent) => {
     let url = endpoints.filter(ept => ept.id == "all__wards_list")[0].url
     try {
         let sc = await justFetch(url)
+		if(parent && parent != null && parent!=''){
+			sc = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
+		}
         return sc
     } catch (er) {
         return {error: true, ...er}
     }
 }
 
-let fetchFacilities = async () => {
+let fetchFacilities = async (parent) => {
     let url = endpoints.filter(ept => ept.id == "all__facilities_list")[0].url
     try {
-        let sc = await justFetch(url)
+		let sc = await justFetch(url)
+		if(parent && parent != null && parent!=''){
+			sc = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
+		}
         return sc
     } catch (er) {
         return {error: true, ...er}
     }
 }
 
-let fetchCUs = async () => {
+let fetchCUs = async (parent) => {
     let url = endpoints.filter(ept => ept.id == "all__cus_list")[0].url
     try {
-        let sc = await justFetch(url)
+		let sc = await justFetch(url)
+		if(parent && parent != null && parent!=''){
+			sc = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
+		}
         return sc
     } catch (er) {
         return {error: true, ...er}
@@ -73,7 +85,6 @@ let fetchMFLcodes = async (id) => {
     try {
         let sc = await justFetch(url)
         if(id && id != null && id!=''){
-          console.log(`${JSON.stringify(sc)}`);
           sc = sc.organisationUnits.filter(sc_=>sc_.id==id)[0]
         }
         return sc

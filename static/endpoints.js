@@ -174,7 +174,7 @@ let endpoints = [
     "Notes": ""
   },
   {
-    "page": "Stock status",
+    "page": "Stock status all",
     "level": "County",
     "name": "All commodities",
     "id": "county__all_commodities",

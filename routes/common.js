@@ -18,18 +18,21 @@ router.get('/counties', async (req, res) => {
     res.json({fetchedData});
 });
 
-router.get('/subcounties', async (req, res) => {
-    let fetchedData = await fetchSubcounties()
+router.get('/subcounties/:parent?', async (req, res) => {
+	let {parent} = req.params
+    let fetchedData = await fetchSubcounties(parent)
     res.json({fetchedData});
 });
 
-router.get('/wards', async (req, res) => {
-    let fetchedData = await fetchWards()
+router.get('/wards/:parent?', async (req, res) => {
+	let {parent} = req.params
+    let fetchedData = await fetchWards(parent)
     res.json({fetchedData});
 });
 
-router.get('/facilities', async (req, res) => {
-    let fetchedData = await fetchFacilities()
+router.get('/facilities/:parent?', async (req, res) => {
+	const {parent} = req.params
+    let fetchedData = await fetchFacilities(parent)
     res.json({fetchedData});
 });
 
@@ -38,7 +41,7 @@ router.get('/commodities', async (req, res) => {
     res.json({fetchedData});
 });
 
-router.get('/community-units', async (req, res) => {
+router.get('/community-units/:parent?', async (req, res) => {
     let fetchedData = await fetchCUs()
     res.json({fetchedData});
 });
