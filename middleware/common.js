@@ -33,7 +33,7 @@ let fetchSubcounties = async (parent) => {
     try {
 		let sc = await justFetch(url)
 		if(parent && parent != null && parent!=''){
-			sc = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
+			sc.organisationUnits = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
 		}
         return sc
     } catch (er) {
@@ -46,7 +46,7 @@ let fetchWards = async (parent) => {
     try {
         let sc = await justFetch(url)
 		if(parent && parent != null && parent!=''){
-			sc = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
+			sc.organisationUnits = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
 		}
         return sc
     } catch (er) {
@@ -59,7 +59,7 @@ let fetchFacilities = async (parent) => {
     try {
 		let sc = await justFetch(url)
 		if(parent && parent != null && parent!=''){
-			sc = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
+			sc.organisationUnits = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
 		}
         return sc
     } catch (er) {
@@ -72,7 +72,7 @@ let fetchCUs = async (parent) => {
     try {
 		let sc = await justFetch(url)
 		if(parent && parent != null && parent!=''){
-			sc = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
+			sc.organisationUnits = sc.organisationUnits.filter(sc_=>sc_.parent.id==parent)
 		}
         return sc
     } catch (er) {
@@ -85,7 +85,7 @@ let fetchMFLcodes = async (id) => {
     try {
         let sc = await justFetch(url)
         if(id && id != null && id!=''){
-          sc = sc.organisationUnits.filter(sc_=>sc_.id==id)[0]
+          sc.organisationUnits = sc.organisationUnits.filter(sc_=>sc_.id==id)[0]
         }
         return sc
     } catch (er) {
