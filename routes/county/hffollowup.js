@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router()
 let {getApiDocs} = require('../../utils/index')
-let {fetchhhunderstocked, fetchhhoverstocked } = require('../../middleware/county/hhfollowup.js')
+let {fetchhfunderstocked, fetchhfoverstocked } = require('../../middleware/county/hffollowup.js')
 
 router.get('/', (req, res) => {
     let docs = getApiDocs(router)
@@ -10,12 +10,12 @@ router.get('/', (req, res) => {
 
 router.get('/understocked/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let fetchedData = await fetchhhunderstocked(ou,level,pe)
+    let fetchedData = await fetchhfunderstocked(ou,level,pe)
     res.json({ fetchedData});
 });
 router.get('/overstocked/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let fetchedData = await fetchhhoverstocked(ou,level,pe)
+    let fetchedData = await fetchhfoverstocked(ou,level,pe)
     res.json({ fetchedData});
 });
 
