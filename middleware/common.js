@@ -18,6 +18,16 @@ let fetchDefaults = async () => {
     }
 }
 
+let fetchLevels = async () => {
+    let url = endpoints.filter(ept => ept.id == "all__levels_list")[0].url
+    try {
+        let sc = await justFetch(url)
+        return sc
+    } catch (err) {
+        return {error: true, ...err}
+    }
+}
+
 let fetchCounties = async () => {
     let url = endpoints.filter(ept => ept.id == "all__counties_list")[0].url
     try {
@@ -139,4 +149,4 @@ let fetchExpectedReports = async (ou,pe) => {
     }
 }
 
-module.exports = {fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults, fetchOrganisationUnit, fetchMCFfacilities, fetchExpectedReports}
+module.exports = {fetchLevels, fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults, fetchOrganisationUnit, fetchMCFfacilities, fetchExpectedReports}

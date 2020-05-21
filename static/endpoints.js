@@ -3,6 +3,15 @@ let endpoints = [
   {
     "page": "Global",
     "level": "All",
+    "name": "Levels list",
+    "id": "all__levels_list",
+    "url": `${DHIS_BASE_API_URL}/organisationUnitLevels.json?paging=false&fields=id,name`,
+    "Filters": "",
+    "Notes": ""
+  },
+  {
+    "page": "Global",
+    "level": "All",
     "name": "Counties list",
     "id": "all__counties_list",
     "url": `${DHIS_BASE_API_URL}/organisationUnits.json?filter=level:eq:2&fields=id,name,level&paging=false`,
