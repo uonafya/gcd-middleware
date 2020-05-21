@@ -5,7 +5,7 @@ let endpoints = [
     "level": "All",
     "name": "Levels list",
     "id": "all__levels_list",
-    "url": `${DHIS_BASE_API_URL}/organisationUnitLevels.json?paging=false&fields=id,name`,
+    "url": `${DHIS_BASE_API_URL}/organisationUnitLevels.json?paging=false&fields=name,level`,
     "Filters": "",
     "Notes": ""
   },
