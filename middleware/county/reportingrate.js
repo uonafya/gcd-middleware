@@ -1,9 +1,14 @@
 let endpoints = require('../../static/endpoints')
+let {fetchDefaults} = require('../../middleware/common')
 let {justFetch, appendQueriesToUrl} = require('../../utils/index')
 
 let fetchrrtrend = async (ou,level,pe) => {
     let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__reporting_rate_trend")[0]
-    let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
+	// let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
+	let defaults = await fetchDefaults() 
+    if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
+    if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
+    if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
     let query = {pe, ou, level}
     try {
         let final_url = appendQueriesToUrl(url, query, defaults)
