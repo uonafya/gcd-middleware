@@ -16,6 +16,7 @@ router.get('/trend/:ou?/:level?/:pe?', async (req, res) => {
 router.get('/latesttrend/:ou?/:level?/:pe?', async (req, res) => {
 	let {ou, level, pe } = req.params
 	level = 3
+	pe = 'LAST_MONTH'
     // let fetchedData = await fetchlastestrr(ou,level,pe)
     let fetchedData = await fetchlastestrr(ou,level,pe)
     res.json({ fetchedData});
