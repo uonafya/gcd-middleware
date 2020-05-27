@@ -14,7 +14,9 @@ router.get('/trend/:ou?/:level?/:pe?', async (req, res) => {
     res.json({ fetchedData});
 });
 router.get('/latesttrend/:ou?/:level?/:pe?', async (req, res) => {
-    let {ou, level, pe } = req.params
+	let {ou, level, pe } = req.params
+	level = 3
+    // let fetchedData = await fetchlastestrr(ou,level,pe)
     let fetchedData = await fetchlastestrr(ou,level,pe)
     res.json({ fetchedData});
 });
