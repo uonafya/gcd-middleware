@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
 
 router.get('/al/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let defaults = fetchDefaults();
+	let defaults = fetchDefaults();
+	defaults.level = 5
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
@@ -22,7 +23,8 @@ router.get('/al/:ou?/:level?/:pe?', async (req, res) => {
 
 router.get('/as/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let defaults = fetchDefaults();
+	let defaults = fetchDefaults();
+	defaults.level = 5
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
@@ -32,7 +34,8 @@ router.get('/as/:ou?/:level?/:pe?', async (req, res) => {
 
 router.get('/sp/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let defaults = fetchDefaults();
+	let defaults = fetchDefaults();
+	defaults.level = 5
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
@@ -42,7 +45,8 @@ router.get('/sp/:ou?/:level?/:pe?', async (req, res) => {
 
 router.get('/rdt/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let defaults = fetchDefaults();
+	let defaults = fetchDefaults();
+	defaults.level = 5
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
@@ -52,7 +56,7 @@ router.get('/rdt/:ou?/:level?/:pe?', async (req, res) => {
 
 router.get('/all/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let defaults = fetchDefaults();
+	let defaults = fetchDefaults();
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
