@@ -22,7 +22,8 @@ router.get('/latesttrend/:ou?/:level?/:pe?', async (req, res) => {
     res.json({ fetchedData});
 });
 router.get('/facility/:ou?/:level?/:pe?', async (req, res) => {
-    let {ou, level, pe } = req.params
+	let {ou, level, pe } = req.params
+	level = 5
     let fetchedData = await fetchfacilityrr(ou,level,pe)
     res.json({ fetchedData});
 });
