@@ -28,7 +28,8 @@ router.get('/facility/:ou?/:level?/:pe?', async (req, res) => {
     res.json({ fetchedData});
 });
 router.get('/subcounty/:ou?/:level?/:pe?', async (req, res) => {
-    let {ou, level, pe } = req.params
+	let {ou, level, pe } = req.params
+	level = 3
     let fetchedData = await fetchsubcountyrr(ou,level,pe)
     res.json({ fetchedData});
 });
