@@ -3,14 +3,8 @@ let {programs} = require('../config/index')
 let {justFetch, appendQueriesToUrl} = require('../utils/index')
 
 let fetchDefaults = async (prog) => {
-    console.log(`+++++++++++ programs ++++++++++++`);
-    console.log(programs);
-    console.log(`----------- programs ------------`);
     if(prog == "" || prog == null || prog == undefined ){prog=1}
     let endpoints = programs.find(prg => prg.id == prog).endpoints
-    console.log(`+++++++++++ endpoints ++++++++++++`);
-    console.log(endpoints);
-    console.log(`----------- endpoints ------------`);
     let date = new Date()
     let url = endpoints.filter(ept => ept.id == "all__user_details")[0].url
     try {
