@@ -10,12 +10,14 @@ router.get('/', (req, res) => {
 
 router.get('/understocked/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let fetchedData = await fetchhfunderstocked(ou,level,pe)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchhfunderstocked(ou,level,pe,prog)
     res.json({ fetchedData});
 });
 router.get('/overstocked/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let fetchedData = await fetchhfoverstocked(ou,level,pe)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchhfoverstocked(ou,level,pe,prog)
     res.json({ fetchedData});
 });
 

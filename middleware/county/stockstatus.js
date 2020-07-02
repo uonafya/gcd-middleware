@@ -1,7 +1,9 @@
-let endpoints = require('../../static/endpoints')
+// let endpoints = require('../../static/endpoints')
+let {programs} = require('../../config/index')
 let {justFetch, appendQueriesToUrl} = require('../../utils/index')
 
-let fetchAS = async (ou,level,pe) => {
+let fetchAS = async (ou,level,pe,prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__artesunate_injection")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
@@ -15,7 +17,8 @@ let fetchAS = async (ou,level,pe) => {
 }
 
 
-let fetchAL = async (ou,level,pe) => {
+let fetchAL = async (ou,level,pe,prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__artemether_lumefantrine")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
@@ -29,7 +32,8 @@ let fetchAL = async (ou,level,pe) => {
 }
 
 
-let fetchSP = async (ou,level,pe) => {
+let fetchSP = async (ou,level,pe,prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__sulphadoxine_pyrimethamine")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
@@ -43,7 +47,8 @@ let fetchSP = async (ou,level,pe) => {
 }
 
 
-let fetchRDT = async (ou,level,pe) => {
+let fetchRDT = async (ou,level,pe,prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__rapid_diagnostic_tests")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
@@ -58,7 +63,8 @@ let fetchRDT = async (ou,level,pe) => {
 
 
 
-let fetchAllSS = async (ou,level,pe) => {
+let fetchAllSS = async (ou,level,pe,prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__all_commodities")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}

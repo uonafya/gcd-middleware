@@ -10,12 +10,14 @@ router.get('/', (req, res) => {
 
 router.get('/indicatorsummary/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let fetchedData = await fetchSupplychainsummary(ou,level,pe)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchSupplychainsummary(ou,level,pe,prog)
     res.json({ fetchedData});
 });
 router.get('/indicatortrends/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let fetchedData = await fetchSupplychaintrend(ou,level,pe)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchSupplychaintrend(ou,level,pe,prog)
     res.json({ fetchedData});
 });
 

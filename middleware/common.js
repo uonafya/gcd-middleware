@@ -1,7 +1,10 @@
-let endpoints = require('../static/endpoints')
+// let endpoints = require('../static/endpoints')
+let {programs} = require('../config/index')
 let {justFetch, appendQueriesToUrl} = require('../utils/index')
 
-let fetchDefaults = async () => {
+let fetchDefaults = async (prog) => {
+    if(prog == "" || prog == null || prog == undefined ){prog=1}
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let date = new Date()
     let url = endpoints.filter(ept => ept.id == "all__user_details")[0].url
     try {
@@ -18,7 +21,9 @@ let fetchDefaults = async () => {
     }
 }
 
-let fetchLevels = async () => {
+let fetchLevels = async (prog) => {
+    if(prog == "" || prog == null || prog == undefined ){prog=1}
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let url = endpoints.filter(ept => ept.id == "all__levels_list")[0].url
     try {
         let sc = await justFetch(url)
@@ -28,7 +33,9 @@ let fetchLevels = async () => {
     }
 }
 
-let fetchCounties = async () => {
+let fetchCounties = async (prog) => {
+    if(prog == "" || prog == null || prog == undefined ){prog=1}
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let url = endpoints.filter(ept => ept.id == "all__counties_list")[0].url
     try {
         let sc = await justFetch(url)
@@ -38,7 +45,9 @@ let fetchCounties = async () => {
     }
 }
 
-let fetchSubcounties = async (parent) => {
+let fetchSubcounties = async (parent,prog) => {
+    if(prog == "" || prog == null || prog == undefined ){prog=1}
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let url = endpoints.filter(ept => ept.id == "all__subcounties_list")[0].url
     try {
 		let sc = await justFetch(url)
@@ -51,7 +60,9 @@ let fetchSubcounties = async (parent) => {
     }
 }
 
-let fetchWards = async (parent) => {
+let fetchWards = async (parent,prog) => {
+    if(prog == "" || prog == null || prog == undefined ){prog=1}
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let url = endpoints.filter(ept => ept.id == "all__wards_list")[0].url
     try {
         let sc = await justFetch(url)
@@ -64,7 +75,9 @@ let fetchWards = async (parent) => {
     }
 }
 
-let fetchFacilities = async (parent) => {
+let fetchFacilities = async (parent,prog) => {
+    if(prog == "" || prog == null || prog == undefined ){prog=1}
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let url = endpoints.filter(ept => ept.id == "all__facilities_list")[0].url
     try {
 		let sc = await justFetch(url)
@@ -77,7 +90,9 @@ let fetchFacilities = async (parent) => {
     }
 }
 
-let fetchCUs = async (parent) => {
+let fetchCUs = async (parent,prog) => {
+    if(prog == "" || prog == null || prog == undefined ){prog=1}
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let url = endpoints.filter(ept => ept.id == "all__cus_list")[0].url
     try {
 		let sc = await justFetch(url)
@@ -90,7 +105,9 @@ let fetchCUs = async (parent) => {
     }
 }
 
-let fetchMFLcodes = async (id) => {
+let fetchMFLcodes = async (id,prog) => {
+    if(prog == "" || prog == null || prog == undefined ){prog=1}
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let url = endpoints.filter(ept => ept.id == "all__mfl_codes")[0].url
     try {
         let sc = await justFetch(url)
@@ -103,7 +120,9 @@ let fetchMFLcodes = async (id) => {
     }
 }
 
-let fetchCommodities = async () => {
+let fetchCommodities = async (prog) => {
+    if(prog == "" || prog == null || prog == undefined ){prog=1}
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let url = endpoints.filter(ept => ept.id == "all__commodities")[0].url
     try {
         let sc = await justFetch(url)
@@ -113,8 +132,10 @@ let fetchCommodities = async () => {
     }
 }
 
-let fetchOrganisationUnit = async (id) => {
+let fetchOrganisationUnit = async (id,prog) => {
     try {
+        if(prog == "" || prog == null || prog == undefined ){prog=1}
+        let endpoints = programs.find(prg => prg.id == prog).endpoints
         let url = `${process.env.DHIS_BASE_API_URL}/organisationUnits/${id}.json`
         let sc = await justFetch(url)
         return sc
@@ -123,7 +144,9 @@ let fetchOrganisationUnit = async (id) => {
     }
 }
 
-let fetchMCFfacilities = async () => {
+let fetchMCFfacilities = async (prog) => {
+    if(prog == "" || prog == null || prog == undefined ){prog=1}
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let url = endpoints.filter(ept => ept.id == "all__mcf_orgunits")[0].url
     try {
         let sc = await justFetch(url)
@@ -133,8 +156,10 @@ let fetchMCFfacilities = async () => {
     }
 }
 
-let fetchExpectedReports = async (ou,pe) => {
+let fetchExpectedReports = async (ou,pe,prog) => {
     try {
+        if(prog == "" || prog == null || prog == undefined ){prog=1}
+        let endpoints = programs.find(prg => prg.id == prog).endpoints
         let {url, default_org_unit, default_period} = endpoints.filter(ept => ept.id == "all__expected_reports")[0]
         let query = {pe, ou}
         let defaults = {default_pe: default_period, default_ou: default_org_unit}

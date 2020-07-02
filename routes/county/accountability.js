@@ -10,8 +10,9 @@ let {fetchaccountability } = require('../../middleware/county/accountability.js'
 
 router.get(':ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
-    let fetchedData = await fetchaccountability(ou,level,pe)
-    res.json({ fetchedData});
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchaccountability(ou,level,pe,prog)
+    res.json({ fetchedData });
 });
 
 module.exports = router;

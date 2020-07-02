@@ -1,7 +1,9 @@
-let endpoints = require('../../static/endpoints')
+// let endpoints = require('../../static/endpoints')
+let {programs} = require('../../config/index')
 let {justFetch, appendQueriesToUrl} = require('../../utils/index')
 
-let fetchCompleteness = async (ou,level,pe) => {
+let fetchCompleteness = async (ou,level,pe,prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__dq_completeness")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
@@ -14,7 +16,8 @@ let fetchCompleteness = async (ou,level,pe) => {
         return {error: true, ...er}
     }
 }
-let fetchConcordance = async (ou,level,pe) => {
+let fetchConcordance = async (ou,level,pe,prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__dq_concordance")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
@@ -27,7 +30,8 @@ let fetchConcordance = async (ou,level,pe) => {
         return {error: true, ...er}
     }
 }
-let fetchConsistency = async (ou,level,pe) => {
+let fetchConsistency = async (ou,level,pe,prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__dq_consistency")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
@@ -40,7 +44,8 @@ let fetchConsistency = async (ou,level,pe) => {
         return {error: true, ...er}
     }
 }
-let fetchComparison = async (ou,level,pe) => {
+let fetchComparison = async (ou,level,pe,prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__dq_comparison")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}

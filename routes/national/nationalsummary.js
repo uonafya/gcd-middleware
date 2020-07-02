@@ -18,7 +18,8 @@ router.get('/facility-mos/:ou?/:level?/:pe?', async (req, res) => { //TODO: set 
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
-    let fetchedData = await fetchfacilitymos(ou,level,pe)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchfacilitymos(ou,level,pe,prog)
     res.json({ fetchedData});
 });
 
@@ -29,7 +30,8 @@ router.get('/kemsa-mos/:ou?/:level?/:pe?', async (req, res) => { //TODO: set con
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
-    let fetchedData = await fetchfacilitymos(ou,level,pe)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchfacilitymos(ou,level,pe,prog)
     res.json({ fetchedData});
 });
 
@@ -40,7 +42,8 @@ router.get('/pending-mos/:ou?/:level?/:pe?', async (req, res) => { //TODO: set c
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
-    let fetchedData = await fetchfacilitymos(ou,level,pe)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchfacilitymos(ou,level,pe,prog)
     res.json({ fetchedData});
 });
 
@@ -51,7 +54,8 @@ router.get('/kemsasummary/:ou?/:level?/:pe?', async (req, res) => { //TODO: set 
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
-    let fetchedData = await fetchkemsasummary(ou,level,pe)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchkemsasummary(ou,level,pe,prog)
     res.json({ fetchedData});
 });
 

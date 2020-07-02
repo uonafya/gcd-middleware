@@ -31,6 +31,16 @@ let {getApiDocs} = require('./utils/index')
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))) // app.get('/favicon.ico', (req, res) => res.status(204));
 
+function getProgram(req, res, next) {
+    let program = req.query.program || 1
+    app.set('program', program);
+    app.locals.program = program
+    console.log(`getProgram: setting prog=${program}`);
+    next()
+}
+app.use(getProgram);
+
+
 app.get('/', async(req, res) => {
     let docs = getApiDocs(app._router)
     res.json(docs)

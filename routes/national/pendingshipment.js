@@ -3,17 +3,20 @@ let router = express.Router()
 let {fetchpendingshipment, postpendingshipment} = require('../../middleware/national/pendingshipment.js')
 
 router.get('/', async (req, res) => {
-    let fetchedData = await fetchpendingshipment()
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchpendingshipment(prog)
     res.json({ fetchedData});
 });
 
 router.post('/', async (req, res) => { //likely unnecessary
-    let fetchedData = await postpendingshipment(options)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await postpendingshipment(options,prog)
     res.json({ fetchedData});
 });
 
 router.put('/', async (req, res) => {
-    let fetchedData = await postpendingshipment(options)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await postpendingshipment(options,prog)
     res.json({ fetchedData});
 });
 

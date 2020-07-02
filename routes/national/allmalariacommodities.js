@@ -5,7 +5,8 @@ let {fetchallmalariacommodities } = require('../../middleware/national/allmalari
 
 router.get(':ou?/:level?/:pe?', async (req, res) => { //TODO: set constant National OU
     let {ou, level, pe } = req.params
-    let fetchedData = await fetchallmalariacommodities(ou,level,pe)
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let fetchedData = await fetchallmalariacommodities(ou,level,pe,prog)
     res.json({ fetchedData});
 });
 

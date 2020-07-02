@@ -1,7 +1,9 @@
-let endpoints = require('../../static/endpoints')
+// let endpoints = require('../../static/endpoints')
+let {programs} = require('../../config/index')
 let {justFetch, appendQueriesToUrl} = require('../../utils/index')
 
-let fetchpendingshipment = async () => {
+let fetchpendingshipment = async (prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url} = endpoints.filter(ept => ept.id == "national__pending_shipments")[0]
     try {
         let sc = await justFetch(url)
@@ -11,7 +13,8 @@ let fetchpendingshipment = async () => {
     }
 }
 
-let updatependingshipment = async (postoptions) => {
+let updatependingshipment = async (postoptions,prog) => {
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url} = endpoints.filter(ept => ept.id == "national__pending_shipments")[0]
     let options = {}
     options.method = "PUT" //POST if not existing. Irrelevant for now
@@ -24,7 +27,8 @@ let updatependingshipment = async (postoptions) => {
     }
 }
 
-let creatependingshipment = async (postoptions) => { //Likely unnecessary
+let creatependingshipment = async (postoptions,prog) => { //Likely unnecessary
+    let endpoints = programs.find(prg => prg.id == prog).endpoints
     let {url} = endpoints.filter(ept => ept.id == "national__pending_shipments")[0]
     let options = {}
     options.method = "POST" //POST if not existing. Irrelevant for now
