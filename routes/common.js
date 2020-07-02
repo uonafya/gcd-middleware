@@ -81,10 +81,10 @@ router.get('/mcf-facilities', async (req, res) => {
 
 router.get('/expected-reports/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, pe } = req.params
-    let defaults = await fetchDefaults() 
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let defaults = await fetchDefaults(prog) 
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
-    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
     let fetchedData = await fetchExpectedReports(ou,pe,prog)
     res.json({ fetchedData});
 });
