@@ -44,12 +44,12 @@ let appendQueriesToUrl = (url, query, defaults) => {
   let { default_pe, default_ou, default_lvl } = defaults;
 
   let query_append = ``;
-  if (pe != null && pe != '') {
+  if (pe != null && pe != '' && pe != '~') {
     query_append += `&dimension=pe:${pe}`;
   } else {
     query_append += `&dimension=pe:${default_pe}`;
   }
-  if (ou != null && ou != '') {
+  if (ou != null && ou != '' && ou != '~') {
     query_append += `&dimension=ou:${ou}`;
   } else {
     query_append += `&dimension=ou:${default_ou}`;
