@@ -322,7 +322,7 @@ let endpoints = [
     "name": "Issues vs Receipts",
     "id": "county__issues_vs_receipts",
     "url": `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:jfUzb86mBSP.DTnItSklSr8;HwvUHnslwbh.DTnItSklSr8;OLYLVMDHEj8.DTnItSklSr8;UJeKVZzAnfS.DTnItSklSr8;naztfZrbMtd.DTnItSklSr8;EtG9ozt2joA.DTnItSklSr8;Umi8ZsiqBHw.DTnItSklSr8;BnGDrFwyQp9.yuvCdaFqdCW;c0MB4RmVjxk.yuvCdaFqdCW;qnZmg5tNSMy.yuvCdaFqdCW;gVp1KSFI69G.yuvCdaFqdCW;iOARK31NdLp.yuvCdaFqdCW;imheYfA1Kiw.yuvCdaFqdCW;eFqDcjgvt39.EJ8nUfcupBq`,
-    "default_period": "201912;202001",
+    "default_period": "LAST_3_MONTHS",
     "default_org_unit": "HfVjCurKxh2",
     "default_org_unit_level": 1,
     "Notes": ""
@@ -421,7 +421,7 @@ let endpoints = [
     "name": "Issues vs Receipts",
     "id": "national__issues_vs_receipts",
     "url": `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:jfUzb86mBSP.DTnItSklSr8;HwvUHnslwbh.DTnItSklSr8;OLYLVMDHEj8.DTnItSklSr8;UJeKVZzAnfS.DTnItSklSr8;naztfZrbMtd.DTnItSklSr8;EtG9ozt2joA.DTnItSklSr8;Umi8ZsiqBHw.DTnItSklSr8;BnGDrFwyQp9.yuvCdaFqdCW;c0MB4RmVjxk.yuvCdaFqdCW;qnZmg5tNSMy.yuvCdaFqdCW;gVp1KSFI69G.yuvCdaFqdCW;iOARK31NdLp.yuvCdaFqdCW;imheYfA1Kiw.yuvCdaFqdCW;eFqDcjgvt39.EJ8nUfcupBq`,
-    "default_period": "201912;202001",
+    "default_period": "LAST_3_MONTHS",
     "default_org_unit": "HfVjCurKxh2",
     "default_org_unit_level": "",
     "Notes": ""
