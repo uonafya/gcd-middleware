@@ -13,6 +13,6 @@ router.use('/reportingrate', require('./reportingrate'))
 router.use('/supplychain', require('./supplychain'))
 router.use('/hffollowup', require('./hffollowup'))
 router.use('/accountability', require('./accountability'))
-router.use('/issuesvsrecipts', require('./issuesvsrecipts'))
+router.use('/issuesvsreceipts', require('./issuesvsreceipts'))
 
 module.exports = router;
