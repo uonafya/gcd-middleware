@@ -12,8 +12,10 @@ router.get('/', (req, res) => {
 router.get('/completeness/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
     let defaults = await fetchDefaults() 
+    defaults.level = 5
+    defaults.period = "LAST_12_MONTHS"
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
-    if(level === undefined || level === null || level === " " || level === '~'){level = 5 /*defaults.level*/}
+    if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
     let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
     let fetchedData = await fetchCompleteness(ou,level,pe,prog) 
@@ -23,6 +25,8 @@ router.get('/completeness/:ou?/:level?/:pe?', async (req, res) => {
 router.get('/concordance/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
     let defaults = await fetchDefaults() 
+    defaults.level = 5
+    defaults.period = "LAST_3_MONTHS"
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
@@ -34,6 +38,8 @@ router.get('/concordance/:ou?/:level?/:pe?', async (req, res) => {
 router.get('/consistency/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
     let defaults = await fetchDefaults() 
+    defaults.level = 5
+    defaults.period = "LAST_MONTH"
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
@@ -45,8 +51,10 @@ router.get('/consistency/:ou?/:level?/:pe?', async (req, res) => {
 router.get('/comparison/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
     let defaults = await fetchDefaults() 
+    defaults.level = 5
+    defaults.period = "LAST_MONTH"
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
-    if(level === undefined || level === null || level === " " || level === '~'){level = 5/*defaults.level*/}
+    if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
     let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
     let fetchedData = await fetchComparison(ou,level,pe,prog)

@@ -191,7 +191,7 @@ endpoints.f_p = [
       id: "county__dq_concordance",
       local_url: `${APP_BASE_URL}/api/county/dataquality/concordance`,
       url: `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:AVDzuypqGt9.Cs84jrj1YFp;AVDzuypqGt9.i9dqmLZr7fd`,
-      default_period: "201911;201912",
+      default_period: "LAST_3_MONTHS",
       default_org_unit: "HfVjCurKxh2",
       default_level: 5,
       notes: null
@@ -620,7 +620,7 @@ endpoints.m_al = [
     id: 'county__dq_concordance',
     local_url: `${APP_BASE_URL}/api/county/dataquality/concordance`,
     url: `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:iOARK31NdLp.HWtHCLAwprR;iOARK31NdLp.rPAsF4cpNxm`,
-    default_period: '201911;201912',
+    default_period: 'LAST_3_MONTHS',
     default_org_unit: 'HfVjCurKxh2',
     default_org_unit_level: 5,
     Notes: ''
