@@ -69,6 +69,7 @@ const getPages = (end_points)=>{
 		  "id": "county__dq_completeness",
 		  "route": `/dq/completeness`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Data Quality"),
+		  "periodFilter": "range",
 		  "Notes": "Has commodity filter"
 		},
 		{
@@ -78,6 +79,7 @@ const getPages = (end_points)=>{
 		  "id": "county__dq_concordance",
 		  "route": `/dq/concordance`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Data Quality"),
+		  "periodFilter": "range",
 		  "Notes": ""
 		},
 		{
@@ -114,6 +116,7 @@ const getPages = (end_points)=>{
 		  "id": "county__indicator_trends",
 		  "route": `/scp/trends`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Supply Chain Performance"),
+		  "periodFilter": "range",
 		  "Notes": ""
 		},
 		{
@@ -132,6 +135,7 @@ const getPages = (end_points)=>{
 		  "id": "county__issues_vs_receipts",
 		  "route": `/issues-receipts`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Issues vs Receipts"),
+		  "periodFilter": "range",
 		  "Notes": ""
 		},
 		{
@@ -186,6 +190,7 @@ const getPages = (end_points)=>{
 		  "id": "national__issues_vs_receipts",
 		  "route": `/national/issues-receipts`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Issues vs Receipts"),
+		  "periodFilter": "range",
 		  "Notes": ""
 		}
 	  ]
