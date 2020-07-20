@@ -9,7 +9,6 @@ let fetchaccountability = async (ou,level,pe,prog) => {
     let query = {pe, ou, level}
     try {
         let final_url = appendQueriesToUrl(url, query, defaults)
-        console.log(final_url)
         let sc = await justFetch(final_url)
         return sc
     } catch (er) {
