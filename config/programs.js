@@ -1,7 +1,7 @@
 let DHIS_BASE_API_URL = process.env.REACT_APP_DHIS_BASE_API_URL
 let APP_BASE_URL = process.env.REACT_APP_APP_BASE_URL || "http://41.89.94.99:3000"
 let programs = []
-const {m_al, f_p, t_b} = require('./endpoints')
+const {m_al, f_p, t_b, h_iv} = require('./endpoints')
 
 const getPages = (end_points)=>{
 	let pages = [
@@ -70,6 +70,7 @@ const getPages = (end_points)=>{
 		  "route": `/dq/completeness`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Data Quality"),
 		  "periodFilter": "range",
+		  "commodityFilter": true,
 		  "Notes": "Has commodity filter"
 		},
 		{
@@ -101,22 +102,23 @@ const getPages = (end_points)=>{
 		  "Notes": ""
 		},
 		{
-		  "page": "Supply Chain Performance",
+		  "page": "Supply Chain Performance Summary",
 		  "level": "County",
 		  "name": "Indicator Summary",
 		  "id": "county__indicator_summary",
 		  "route": `/scp/summary`,
-		  "endpoints": end_points.filter(pg=>pg.page=="Supply Chain Performance"),
+		  "endpoints": end_points.filter(pg=>pg.page==="Supply Chain Performance Summary"),
 		  "Notes": ""
 		},
 		{
-		  "page": "Supply Chain Performance",
+		  "page": "Supply Chain Performance Trends",
 		  "level": "County",
 		  "name": "Indicator Trends",
 		  "id": "county__indicator_trends",
 		  "route": `/scp/trends`,
-		  "endpoints": end_points.filter(pg=>pg.page=="Supply Chain Performance"),
+		  "endpoints": end_points.filter(pg=>pg.page==="Supply Chain Performance Trends"),
 		  "periodFilter": "range",
+		  "commodityFilter": true,
 		  "Notes": ""
 		},
 		{
@@ -224,8 +226,18 @@ tb.pages = getPages(t_b)
 tb.endpoints = t_b
 // TB----- />
 
+// <----HIV
+let hiv = {}
+hiv.name = "HIV"
+hiv.id = 4
+hiv.owner = "NASCOP, MoH"
+hiv.pages = getPages(h_iv)
+hiv.endpoints = h_iv
+// HIV----- />
+
 programs.push(malaria)
 programs.push(fp)
+programs.push(hiv)
 programs.push(tb)
 
 module.exports = programs
