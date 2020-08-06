@@ -233,7 +233,7 @@ endpoints.f_p = [
       notes: null
     },
     {
-      page: "Supply Chain Performance",
+      page: "Supply Chain Performance Trends",
       level: "County",
       name: "Indicator Trends",
       id: "county__indicator_trends",
@@ -1181,7 +1181,7 @@ endpoints.h_iv = [
 	  notes: ""
 	},
 	{
-	  page: "Supply Chain Performance",
+	  page: "Supply Chain Performance Trends",
 	  level: "County",
 	  name: "Indicator Trends",
 	  id: "county__indicator_trends",

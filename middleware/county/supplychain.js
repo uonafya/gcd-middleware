@@ -16,9 +16,9 @@ let fetchSupplychainsummary = async (ou,level,pe,prog) => {
     }
 }
 
-let fetchSupplychaintrend = async (ou,level,pe,prog) => {
+let fetchSupplychaintrend = async (ou,level,pe,commodity,prog) => {
     let endpoints = programs.find(prg => prg.id == prog).endpoints
-    let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__indicator_trends")[0]
+    let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.page == "Supply Chain Performance Trends" && ept.url.includes(commodity))[0] || endpoints.filter(ept => ept.page == "Supply Chain Performance Trends")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
     try {
