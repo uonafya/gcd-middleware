@@ -15,8 +15,8 @@ router.get('/indicatorsummary/:ou?/:level?/:pe?', async (req, res) => {
     let fetchedData = await fetchSupplychainsummary(ou,level,pe,prog)
     res.json({ fetchedData});
 });
-router.get('/indicatortrends/:ou?/:level?/:pe?/:commdt?', async (req, res) => {
-    let {ou, level, pe, commdt } = req.params
+router.get('/indicatortrends/:commdt?/:ou?/:level?/:pe?', async (req, res) => {
+    let {commdt, ou, level, pe } = req.params
     let prapplo = req.app.locals.program; let prog = req.query.program || prapplo;
     let fetchedData = await fetchSupplychaintrend(ou,level,pe,commdt,prog)
     res.json({ fetchedData});
