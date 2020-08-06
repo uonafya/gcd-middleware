@@ -174,4 +174,27 @@ let fetchExpectedReports = async (ou,pe,prog) => {
     }
 }
 
-module.exports = {fetchLevels, fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults, fetchOrganisationUnit, fetchMCFfacilities, fetchExpectedReports}
+let fetchCustom = async (dx,ou,level,pe) => {
+    try {
+        let endpoint = process.env.REACT_APP_DHIS_BASE_API_URL+"/26/analytics.json"
+        // let query = {dx, ou, level, pe}
+        // let defaults = {default_pe: default_period, default_ou: default_org_unit}
+        endpoint += "?dimension=dx:"+dx
+        if(ou && ou != '' && ou != '~' && ou != null){
+            endpoint += "?dimension=ou:"+ou
+        }
+        if(level && level != '' && level != '~' && level != null){
+            endpoint += ";LEVEL-"+level
+        }
+        if(pe && pe != '' && pe != '~' && pe != null){
+            endpoint += "&dimension=pe:"+pe
+        }
+        console.log(`custom endpoint  = ${endpoint}`);
+        let sc = await justFetch(endpoint)
+        return sc
+    } catch (er) {
+        return {error: true, ...er}
+    }
+}
+
+module.exports = {fetchLevels, fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchDefaults, fetchOrganisationUnit, fetchMCFfacilities, fetchExpectedReports, fetchCustom}

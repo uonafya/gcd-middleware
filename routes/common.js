@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router()
 let {getApiDocs} = require('../utils/index')
-let {fetchLevels, fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchMCFfacilities, fetchDefaults, fetchOrganisationUnit, fetchExpectedReports} = require('../middleware/common')
+let {fetchLevels, fetchCounties, fetchSubcounties, fetchWards, fetchFacilities, fetchMFLcodes, fetchCUs, fetchCommodities, fetchMCFfacilities, fetchDefaults, fetchOrganisationUnit, fetchExpectedReports, fetchCustom} = require('../middleware/common')
 
 router.get('/', (req, res) => {
     let docs = getApiDocs(router)
@@ -86,6 +86,17 @@ router.get('/expected-reports/:ou?/:level?/:pe?', async (req, res) => {
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
     let fetchedData = await fetchExpectedReports(ou,pe,prog)
+    res.json({ fetchedData});
+});
+
+router.get('/custom/:dx?/:ou?/:level?/:pe?', async (req, res) => {
+    let {dx, ou, level, pe } = req.params
+    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
+    let defaults = await fetchDefaults(prog) 
+    if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
+    if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
+    if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
+    let fetchedData = await fetchCustom(dx,ou,level,pe)
     res.json({ fetchedData});
 });
 
