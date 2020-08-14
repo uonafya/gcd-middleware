@@ -68,7 +68,7 @@ const getPages = (end_points)=>{
 		  "name": "Completeness",
 		  "id": "county__dq_completeness",
 		  "route": `/dq/completeness`,
-		  "endpoints": end_points.filter(pg=>pg.page=="Data Quality"),
+		  "endpoints": end_points.filter(pg=>pg.name=="Completeness"),
 		  "periodFilter": "range",
 		  "commodityFilter": true,
 		  "Notes": "Has commodity filter"
@@ -79,8 +79,7 @@ const getPages = (end_points)=>{
 		  "name": "Concordance",
 		  "id": "county__dq_concordance",
 		  "route": `/dq/concordance`,
-		  "endpoints": end_points.filter(pg=>pg.page=="Data Quality"),
-		  "periodFilter": "range",
+		  "endpoints": end_points.filter(pg=>pg.name=="Concordance"),
 		  "Notes": ""
 		},
 		{
@@ -89,7 +88,7 @@ const getPages = (end_points)=>{
 		  "name": "Consistency",
 		  "id": "county__dq_consistency",
 		  "route": `/dq/consistency`,
-		  "endpoints": end_points.filter(pg=>pg.page=="Data Quality"),
+		  "endpoints": end_points.filter(pg=>pg.name=="Consistency"),
 		  "Notes": ""
 		},
 		{
@@ -98,7 +97,7 @@ const getPages = (end_points)=>{
 		  "name": "Comparison",
 		  "id": "county__dq_comparison",
 		  "route": `/dq/comparison`,
-		  "endpoints": end_points.filter(pg=>pg.page=="Data Quality"),
+		  "endpoints": end_points.filter(pg=>pg.name=="Comparison"),
 		  "Notes": ""
 		},
 		{

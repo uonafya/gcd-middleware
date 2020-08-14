@@ -22,16 +22,16 @@ router.get('/completeness/:ou?/:level?/:pe?', async (req, res) => {
     res.json({ fetchedData});
 });
 
-router.get('/concordance/:ou?/:level?/:pe?', async (req, res) => {
-    let {ou, level, pe } = req.params
+router.get('/concordance/:commdt?/:ou?/:level?/:pe?', async (req, res) => {
+    let {commdt, ou, level, pe } = req.params
     let defaults = await fetchDefaults() 
     defaults.level = 5
-    defaults.period = "LAST_3_MONTHS"
+    defaults.period = "LAST_MONTH"
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
     let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
-    let fetchedData = await fetchConcordance(ou,level,pe,prog)
+    let fetchedData = await fetchConcordance(ou,level,pe,commdt,prog)
     res.json({ fetchedData});
 });
 
