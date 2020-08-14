@@ -17,7 +17,7 @@ let fetchCompleteness = async (ou,level,pe,prog) => {
 }
 let fetchConcordance = async (ou,level,pe,commodity,prog) => {
     let endpoints = programs.find(prg => prg.id == prog).endpoints
-    let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.name == "Concordance" && ept.url.includes(commodity))[0] || endpoints.filter(ept => ept.name == "Concordance")[0]
+    let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.page == "Data Quality: Concordance" && ept.url.includes(commodity))[0] || endpoints.filter(ept => ept.page == "Data Quality: Concordance")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
     try {
