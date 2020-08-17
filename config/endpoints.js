@@ -1297,7 +1297,7 @@ endpoints.h_iv = [
 	  local_url: `${APP_BASE_URL}/api/county/dataquality/consistency`,
 	  default_period: "LAST_MONTH",
 	  default_org_unit: "HfVjCurKxh2",
-	  default_level: /""5,
+	  default_level: 5,
 	  notes: ""
 	},
 	{
