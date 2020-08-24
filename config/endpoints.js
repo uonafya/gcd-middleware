@@ -15,7 +15,17 @@ endpoints.f_p = [
       default_org_unit: null,
       default_level: null,
       notes: null
-    },
+	},
+	{
+		page: 'Global',
+		level: 'All',
+		name: 'Organisation unit details',
+		id: 'all__org_unit_details',
+		local_url: `${APP_BASE_URL}/api/common/organisationUnit`,
+		url: `${DHIS_BASE_API_URL}/organisationUnits`,
+		Filters: '',
+		Notes: ''
+	},
     {
       page: "Global",
       level: "All",
@@ -348,6 +358,16 @@ endpoints.m_al = [
     name: 'Levels list',
     id: 'all__levels_list',
     url: `${DHIS_BASE_API_URL}/organisationUnitLevels.json?paging=false&fields=name,level`,
+    Filters: '',
+    Notes: ''
+  },
+  {
+    page: 'Global',
+    level: 'All',
+    name: 'Organisation unit details',
+    id: 'all__org_unit_details',
+    local_url: `${APP_BASE_URL}/api/common/organisationUnit`,
+    url: `${DHIS_BASE_API_URL}/organisationUnits`,
     Filters: '',
     Notes: ''
   },
@@ -943,7 +963,7 @@ endpoints.m_al = [
     name: 'National Summary',
     id: 'national__summary_facility_mos',
     local_url: `${APP_BASE_URL}/api/national/summary/facility-mos`,
-    url: `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:HfGVoCZAwtd;nK8sqMAeQHY;ZcngDQJKiEg;wOKbEd8Dbi3;SSARcWY2Ge1;AX1co0SXobM;UUNwkYQhYgX`,
+    url: `${DHIS_BASE_API_URL}/26/analytics.json?dimension=dx:HfGVoCZAwtd;ZcngDQJKiEg;nK8sqMAeQHY;wOKbEd8Dbi3;SSARcWY2Ge1;AX1co0SXobM;UUNwkYQhYgX`,
     default_period: 'LAST_MONTH',
     default_org_unit: 'HfVjCurKxh2',
     default_org_unit_level: '',
@@ -1035,6 +1055,16 @@ endpoints.h_iv = [
 	  default_org_unit: "",
 	  default_level: "",
 	  notes: ""
+	},
+	{
+		page: 'Global',
+		level: 'All',
+		name: 'Organisation unit details',
+		id: 'all__org_unit_details',
+		local_url: `${APP_BASE_URL}/api/common/organisationUnit`,
+		url: `${DHIS_BASE_API_URL}/organisationUnits`,
+		Filters: '',
+		Notes: ''
 	},
 	{
 	  page: "Global",
