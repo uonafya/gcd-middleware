@@ -2,59 +2,22 @@ let express = require('express');
 let router = express.Router()
 let {getApiDocs} = require('../../utils/index')
 let {fetchDefaults} = require('../../middleware/common')
-let {fetchAL, fetchAS, fetchSP, fetchRDT, fetchAllSS} = require('../../middleware/county/stockstatus')
-// let defaults = fetchDefaults().then(df=>{return df}).catch( (er)=>{return {level: 1, period: 'LAST_MONTH', dataViewOrganisationUnits: [{id:'HfVjCurKxh2'}]}} )
+let {fetchAllSS, fetchOne} = require('../../middleware/county/stockstatus')
 
 router.get('/', (req, res) => {
     let docs = getApiDocs(router)
     res.json(docs)
 })
 
-router.get('/al/:ou?/:level?/:pe?', async (req, res) => {
-    let {ou, level, pe } = req.params
+router.get('/one/:commdt?/:ou?/:level?/:pe?', async (req, res) => {
+    let {commdt, ou, level, pe } = req.params
 	let defaults = fetchDefaults();
 	defaults.level = 5
     if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
     if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
     let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
-    let fetchedData = await fetchAL(ou,level,pe,prog)
-    res.json({ fetchedData});
-});
-
-router.get('/as/:ou?/:level?/:pe?', async (req, res) => {
-    let {ou, level, pe } = req.params
-	let defaults = fetchDefaults();
-	defaults.level = 5
-    if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
-    if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
-    if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
-    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
-    let fetchedData = await fetchAS(ou,level,pe,prog)
-    res.json({ fetchedData});
-});
-
-router.get('/sp/:ou?/:level?/:pe?', async (req, res) => {
-    let {ou, level, pe } = req.params
-	let defaults = fetchDefaults();
-	defaults.level = 5
-    if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
-    if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
-    if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
-    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
-    let fetchedData = await fetchSP(ou,level,pe,prog)
-    res.json({ fetchedData});
-});
-
-router.get('/rdt/:ou?/:level?/:pe?', async (req, res) => {
-    let {ou, level, pe } = req.params
-	let defaults = fetchDefaults();
-	defaults.level = 5
-    if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
-    if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
-    if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
-    let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
-    let fetchedData = await fetchRDT(ou,level,pe,prog)
+    let fetchedData = await fetchOne(ou,level,pe,commdt,prog)
     res.json({ fetchedData});
 });
 
