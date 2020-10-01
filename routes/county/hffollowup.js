@@ -8,18 +8,18 @@ router.get('/', (req, res) => {
     res.json(docs)
 })
 
-router.get('/understocked/:ou?/:level?/:pe?', async (req, res) => {
-    let {ou, level, pe } = req.params
+router.get('/understocked/:commdt?/:ou?/:level?/:pe?', async (req, res) => {
+    let {commdt, ou, level, pe } = req.params
     let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
     level = 5
-    let fetchedData = await fetchhfunderstocked(ou,level,pe,prog)
+    let fetchedData = await fetchhfunderstocked(ou,level,pe,commdt,prog)
     res.json({ fetchedData});
 });
-router.get('/overstocked/:ou?/:level?/:pe?', async (req, res) => {
-    let {ou, level, pe } = req.params
+router.get('/overstocked/:commdt?/:ou?/:level?/:pe?', async (req, res) => {
+    let {commdt, ou, level, pe } = req.params
     let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
     level = 5
-    let fetchedData = await fetchhfoverstocked(ou,level,pe,prog)
+    let fetchedData = await fetchhfoverstocked(ou,level,pe,commdt,prog)
     res.json({ fetchedData});
 });
 
