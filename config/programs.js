@@ -1,7 +1,7 @@
 let DHIS_BASE_API_URL = process.env.REACT_APP_DHIS_BASE_API_URL
 let APP_BASE_URL = process.env.REACT_APP_APP_BASE_URL || "http://41.89.94.99:3000"
 let programs = []
-const {m_al, f_p, t_b, h_iv, e_mms, n_utr} = require('./endpoints')
+const {m_al, f_p, t_b, e_mms, n_utr, hiv_adult_preps, hiv_oi_preps, hiv_paed_preps, hiv_tb_preps} = require('./endpoints')
 
 const getPages = (end_points)=>{
 	let pages = [
@@ -13,6 +13,7 @@ const getPages = (end_points)=>{
 		  "route": `/dashboard`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Dashboard"),
 		  "active": end_points.filter(pg=>pg.page=="Dashboard").length>0,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -23,6 +24,7 @@ const getPages = (end_points)=>{
 		  "route": `/ss/commodity`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Stock status"),
 		  "active": end_points.filter(pg=>pg.page=="Stock status").length>0,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -33,6 +35,18 @@ const getPages = (end_points)=>{
 		  "route": `/ss/all`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Stock status all"),
 		  "active": end_points.filter(pg=>pg.page=="Stock status all").length>0,
+		  "ouFilter": true,		  
+		  "Notes": ""
+		},
+		{
+		  "page": "Stock status",
+		  "level": "County",
+		  "name": "Stock Status Map",
+		  "id": "county__all_commodities",
+		  "route": `/ss/map`,
+		  "endpoints": end_points.filter(pg=>pg.page=="Stock status all"),
+		  "active": end_points.filter(pg=>pg.page=="Stock status all").length>0,
+		  "ouFilter": false,	  
 		  "Notes": ""
 		},
 		{
@@ -44,6 +58,7 @@ const getPages = (end_points)=>{
 		  "endpoints": end_points.filter(pg=>pg.page=="Reporting Rate"),
 		  "active": end_points.filter(pg=>pg.page=="Reporting Rate").length>0,
 		  "periodFilter": "range",
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -55,6 +70,7 @@ const getPages = (end_points)=>{
 		  "endpoints": end_points.filter(pg=>pg.page=="Reporting Rate"),
 		  "active": end_points.filter(pg=>pg.page=="Reporting Rate").length>0,
 		  "periodFilter": "range",
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -66,6 +82,7 @@ const getPages = (end_points)=>{
 		  "endpoints": end_points.filter(pg=>pg.page=="Reporting Rate"),
 		  "active": end_points.filter(pg=>pg.page=="Reporting Rate").length>0,
 		  "periodFilter": "range",
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -78,6 +95,7 @@ const getPages = (end_points)=>{
 		  "active": end_points.filter(pg=>pg.page=="Data Quality: Completeness").length>0,
 		  "periodFilter": "range",
 		  "commodityFilter": true,
+		  "ouFilter": true,		  
 		  "Notes": "Has commodity filter"
 		},
 		{
@@ -89,6 +107,7 @@ const getPages = (end_points)=>{
 		  "endpoints": end_points.filter(pg=>pg.page=="Data Quality: Concordance"),
 		  "active": end_points.filter(pg=>pg.page=="Data Quality: Concordance").length>0,
 		  "commodityFilter": true,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -100,6 +119,7 @@ const getPages = (end_points)=>{
 		  "endpoints": end_points.filter(pg=>pg.page=="Data Quality: Consistency"),
 		  "active": end_points.filter(pg=>pg.page=="Data Quality: Consistency").length>0,
 		  "commodityFilter": true,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -110,6 +130,7 @@ const getPages = (end_points)=>{
 		  "route": `/dq/comparison`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Data Quality: Comparison"),
 		  "active": end_points.filter(pg=>pg.page=="Data Quality: Comparison").length>0,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -120,6 +141,7 @@ const getPages = (end_points)=>{
 		  "route": `/scp/summary`,
 		  "endpoints": end_points.filter(pg=>pg.page==="Supply Chain Performance Summary"),
 		  "active": end_points.filter(pg=>pg.page==="Supply Chain Performance Summary").length>0,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -132,6 +154,7 @@ const getPages = (end_points)=>{
 		  "active": end_points.filter(pg=>pg.page==="Supply Chain Performance Trends").length>0,
 		  "periodFilter": "range",
 		  "commodityFilter": true,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -142,6 +165,7 @@ const getPages = (end_points)=>{
 		  "route": `/accountability`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Accountability"),
 		  "active": end_points.filter(pg=>pg.page=="Accountability").length>0,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -153,6 +177,7 @@ const getPages = (end_points)=>{
 		  "endpoints": end_points.filter(pg=>pg.page=="Issues vs Receipts"),
 		  "active": end_points.filter(pg=>pg.page=="Issues vs Receipts").length>0,
 		  "periodFilter": "range",
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -163,6 +188,7 @@ const getPages = (end_points)=>{
 		  "route": `/hff/understocked`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Health Facility Followup"),
 		  "active": end_points.filter(pg=>pg.page=="Health Facility Followup").length>0,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -173,6 +199,7 @@ const getPages = (end_points)=>{
 		  "route": `/hff/overstocked`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Health Facility Followup"),
 		  "active": end_points.filter(pg=>pg.page=="Health Facility Followup").length>0,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -183,6 +210,7 @@ const getPages = (end_points)=>{
 		  "route": `/national/summary`,
 		  "endpoints": end_points.filter(pg=>pg.page=="National Summary"),
 		  "active": end_points.filter(pg=>pg.page=="National Summary").length>0,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -193,6 +221,7 @@ const getPages = (end_points)=>{
 		  "route": `/national/commodities`,
 		  "endpoints": end_points.filter(pg=>pg.page=="All Malaria Commodities"),
 		  "active": end_points.filter(pg=>pg.page=="All Malaria Commodities").length>0,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		{
@@ -203,6 +232,7 @@ const getPages = (end_points)=>{
 		  "route": `/national/pending-shipments`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Pending Shipments"),
 		  "active": end_points.filter(pg=>pg.page=="Pending Shipments").length>0,
+		  "ouFilter": true,		  
 		  "Notes": ""
 		},
 		// {
@@ -214,6 +244,7 @@ const getPages = (end_points)=>{
 		//   "endpoints": end_points.filter(pg=>pg.page=="Issues vs Receipts"),
 		//   "active": end_points.filter(pg=>pg.page=="Issues vs Receipts").length>0,
 		//   "periodFilter": "range",
+		//   "ouFilter": true,		
 		//   "Notes": ""
 		// }
 	  ]
@@ -224,6 +255,7 @@ const getPages = (end_points)=>{
 let malaria = {}
 malaria.name = "Malaria Programme"
 malaria.id = 1
+malaria.thresholds = {"national": [9,18], "subnational": [3,6]}
 malaria.active = true
 malaria.owner = "DNMP"
 malaria.pages = getPages(m_al)
@@ -234,6 +266,7 @@ malaria.endpoints = m_al
 let fp = {}
 fp.name = "Family Planning"
 fp.id = 2
+fp.thresholds = {"national": [9,18], "subnational": [3,6]}
 fp.active = true
 fp.owner = "FP Department, MoH"
 fp.pages = getPages(f_p)
@@ -244,6 +277,7 @@ fp.endpoints = f_p
 let tb = {}
 tb.name = "Tuberculosis"
 tb.id = 3
+tb.thresholds = {"national": [9,18], "subnational": [3,6]}
 tb.active = false
 tb.owner = "TB Department, MoH"
 tb.pages = getPages(t_b)
@@ -254,46 +288,51 @@ tb.endpoints = t_b
 let hiv = {}
 hiv.name = "HIV - OI Medicines"
 hiv.id = 4.1
-hiv.active = false
+hiv.thresholds = {"national": [9,18], "subnational": [3,6]}
+hiv.active = true
 hiv.owner = "NASCOP, MoH"
-hiv.pages = getPages(h_iv)
-hiv.endpoints = h_iv
+hiv.pages = getPages(hiv_oi_preps)
+hiv.endpoints = hiv_oi_preps
 // HIV----- />
 
 // <----HIV
 let hiv2 = {}
 hiv2.name = "HIV - TB Drugs"
 hiv2.id = 4.2
-hiv2.active = false
+hiv2.thresholds = {"national": [9,18], "subnational": [3,6]}
+hiv2.active = true
 hiv2.owner = "NASCOP, MoH"
-hiv2.pages = getPages(h_iv)
-hiv2.endpoints = h_iv
+hiv2.pages = getPages(hiv_tb_preps)
+hiv2.endpoints = hiv_tb_preps
 // HIV----- />
 
 // <----HIV
 let hiv3 = {}
 hiv3.name = "HIV - Paediatric preparations"
 hiv3.id = 4.3
-hiv3.active = false
+hiv3.thresholds = {"national": [9,18], "subnational": [3,6]}
+hiv3.active = true
 hiv3.owner = "NASCOP, MoH"
-hiv3.pages = getPages(h_iv)
-hiv3.endpoints = h_iv
+hiv3.pages = getPages(hiv_paed_preps)
+hiv3.endpoints = hiv_paed_preps
 // HIV----- />
 
 // <----HIV
 let hiv4 = {}
 hiv4.name = "HIV - Adult preparations"
 hiv4.id = 4.4
-hiv4.active = false
+hiv4.thresholds = {"national": [9,18], "subnational": [3,6]}
+hiv4.active = true
 hiv4.owner = "NASCOP, MoH"
-hiv4.pages = getPages(h_iv)
-hiv4.endpoints = h_iv
+hiv4.pages = getPages(hiv_adult_preps)
+hiv4.endpoints = hiv_adult_preps
 // HIV----- />
 
 // <----Nutrition
 let nutr = {}
 nutr.name = "Nutrition"
 nutr.id = 5
+nutr.thresholds = {"national": [9,18], "subnational": [3,6]}
 nutr.active = false
 nutr.owner = "Nutrition Department"
 nutr.pages = getPages(n_utr)
@@ -304,6 +343,7 @@ nutr.endpoints = n_utr
 let emms = {}
 emms.name = "EMMS"
 emms.id = 5
+emms.thresholds = {"national": [9,18], "subnational": [3,6]}
 emms.active = false
 emms.owner = "EMMS"
 emms.pages = getPages(e_mms)
@@ -316,7 +356,7 @@ programs.push(hiv)
 programs.push(hiv2)
 programs.push(hiv3)
 programs.push(hiv4)
-programs.push(tb)
+// programs.push(tb)
 programs.push(emms)
 programs.push(nutr)
 

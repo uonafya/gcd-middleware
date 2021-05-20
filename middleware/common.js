@@ -15,6 +15,9 @@ let fetchDefaults = async (prog) => {
         if(def_mnth < 10){def_mnth = "0"+def_mnth}
         let def_prd = def_yr+""+def_mnth
         sc.period = def_prd
+        console.log(">>>>>>>>>>>>>>>>> defaults: ")
+        console.log(sc)
+        console.log(" defaults <<<<<<<<<<<<<<<<< ")
         return sc
     } catch (err) {
         return {error: true, ...err}
@@ -176,7 +179,7 @@ let fetchExpectedReports = async (ou,pe,prog) => {
 
 let fetchCustom = async (dx,ou,level,pe) => {
     try {
-        let endpoint = process.env.REACT_APP_DHIS_BASE_API_URL+"/26/analytics.json"
+        let endpoint = process.env.REACT_APP_DHIS_BASE_API_URL+"/analytics.json"
         // let query = {dx, ou, level, pe}
         // let defaults = {default_pe: default_period, default_ou: default_org_unit}
         endpoint += "?dimension=dx:"+dx
