@@ -75,7 +75,7 @@ let endpoints = [
   {
     "page": "Global",
     "level": "All",
-    "name": "Malaria Commodities",
+    "name": "Program Commodities",
     "id": "all__commodities",
     "url": `${DHIS_BASE_API_URL}/dataSets/JPaviRmSsJW.json?fields=dataSetElements[dataElement[id,name]]`,
     "Filters": "",
@@ -394,7 +394,7 @@ let endpoints = [
     "Notes": ""
   },
   {
-    "page": "All Malaria Commodities",
+    "page": "National SOH Comparison",
     "level": "National",
     "name": "SOH Comparison",
     "id": "national__soh_comparison",

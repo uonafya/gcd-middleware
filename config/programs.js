@@ -42,7 +42,7 @@ const getPages = (end_points)=>{
 		  "page": "Stock status",
 		  "level": "County",
 		  "name": "Stock Status Map",
-		  "id": "county__all_commodities",
+		  "id": "county__all_commodities_map",
 		  "route": `/ss/map`,
 		  "endpoints": end_points.filter(pg=>pg.page=="Stock status all"),
 		  "active": end_points.filter(pg=>pg.page=="Stock status all").length>0,
@@ -55,8 +55,8 @@ const getPages = (end_points)=>{
 		  "name": "Reporting Rate Summary",
 		  "id": "county__reporting_rate_trend",
 		  "route": `/rr/summary`,
-		  "endpoints": end_points.filter(pg=>pg.page=="Reporting Rate"),
-		  "active": end_points.filter(pg=>pg.page=="Reporting Rate").length>0,
+		  "endpoints": end_points.filter(pg=>pg.name.includes("Reporting Rate Trend")),
+		  "active": end_points.filter(pg=>pg.name.includes("Reporting Rate Trend")).length>0,
 		  "periodFilter": "range",
 		  "ouFilter": true,		  
 		  "Notes": ""
@@ -67,8 +67,8 @@ const getPages = (end_points)=>{
 		  "name": "Facility Reporting Rate",
 		  "id": "county__facility_reporting_rate",
 		  "route": `/rr/facility`,
-		  "endpoints": end_points.filter(pg=>pg.page=="Reporting Rate"),
-		  "active": end_points.filter(pg=>pg.page=="Reporting Rate").length>0,
+		  "endpoints": end_points.filter(pg=>pg.name.includes("Facility Reporting Rate")),
+		  "active": end_points.filter(pg=>pg.name.includes("Facility Reporting Rate")).length>0,
 		  "periodFilter": "range",
 		  "ouFilter": true,		  
 		  "Notes": ""
@@ -79,8 +79,8 @@ const getPages = (end_points)=>{
 		  "name": "Subcounty Reporting Rate",
 		  "id": "county__subcounty_reporting_rate",
 		  "route": `/rr/subcounty`,
-		  "endpoints": end_points.filter(pg=>pg.page=="Reporting Rate"),
-		  "active": end_points.filter(pg=>pg.page=="Reporting Rate").length>0,
+		  "endpoints": end_points.filter(pg=>pg.name.includes("Subcounty Reporting Rate")),
+		  "active": end_points.filter(pg=>pg.name.includes("Subcounty Reporting Rate")).length>0,
 		  "periodFilter": "range",
 		  "ouFilter": true,		  
 		  "Notes": ""
@@ -214,13 +214,13 @@ const getPages = (end_points)=>{
 		  "Notes": ""
 		},
 		{
-		  "page": "All Malaria Commodities",
+		  "page": "National SOH Comparison",
 		  "level": "National",
 		  "name": "SOH Comparison",
 		  "id": "national__soh_comparison",
 		  "route": `/national/commodities`,
-		  "endpoints": end_points.filter(pg=>pg.page=="All Malaria Commodities"),
-		  "active": end_points.filter(pg=>pg.page=="All Malaria Commodities").length>0,
+		  "endpoints": end_points.filter(pg=>pg.page=="National SOH Comparison"),
+		  "active": end_points.filter(pg=>pg.page=="National SOH Comparison").length>0,
 		  "ouFilter": true,		  
 		  "Notes": ""
 		},

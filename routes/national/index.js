@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 })
 
 router.use('/summary', require('./nationalsummary'))
-router.use('/allmalariacommodities', require('./allmalariacommodities'))
+router.use('/sohcomparison', require('./allmalariacommodities'))
 router.use('/pendingshipment', require('./pendingshipment'))
 router.use('/issuesvsrecipts', require('./nationalissuesvsrecipts'))
 

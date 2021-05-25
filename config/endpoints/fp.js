@@ -94,7 +94,7 @@ let fp = [
   {
     page: 'Global',
     level: 'All',
-    name: 'Malaria Commodities',
+    name: 'Program Commodities',
     id: 'all__commodities',
     local_url: `${APP_BASE_URL}/api/common/commodities`,
     url: `${DHIS_BASE_API_URL}/dataSets/g3RQRuh8ikd.json?fields=dataSetElements[dataElement[id,name]]`,
@@ -781,7 +781,7 @@ let fp = [
     name: 'Issues vs Receipts',
     id: 'county__issues_vs_receipts',
     local_url: `${APP_BASE_URL}/api/county/issuesvsreceipts`,
-    url: `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:jfUzb86mBSP.DTnItSklSr8;HwvUHnslwbh.DTnItSklSr8;OLYLVMDHEj8.DTnItSklSr8;UJeKVZzAnfS.DTnItSklSr8;naztfZrbMtd.DTnItSklSr8;EtG9ozt2joA.DTnItSklSr8;Umi8ZsiqBHw.DTnItSklSr8;BnGDrFwyQp9.yuvCdaFqdCW;c0MB4RmVjxk.yuvCdaFqdCW;qnZmg5tNSMy.yuvCdaFqdCW;gVp1KSFI69G.yuvCdaFqdCW;iOARK31NdLp.yuvCdaFqdCW;imheYfA1Kiw.yuvCdaFqdCW;eFqDcjgvt39.EJ8nUfcupBq`,
+    url: `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:hH9gmEmEhH4.VW51Ep3auXR;m1U1MJZoK9Q.DTnItSklSr8;bGGT0F7iRxt.VW51Ep3auXR;CxoGtEwF44m.DTnItSklSr8;qaBPR9wbWku.VW51Ep3auXR;nGR47qCgOfQ.DTnItSklSr8;AR7RhdC90IV.VW51Ep3auXR;RXJmB0afFhv.DTnItSklSr8;tfPZ6sGgh4q.VW51Ep3auXR;ri9reJBhA2Y.DTnItSklSr8;XgJfT71Unkn.VW51Ep3auXR;QZpWVTFZEE7.DTnItSklSr8;MsS41X1GEFr.VW51Ep3auXR;WLS1R40DxXt.DTnItSklSr8;J6qnTev1LXw.VW51Ep3auXR;CH3syaQ3wJ3.DTnItSklSr8;AVDzuypqGt9.VW51Ep3auXR;YSjqRqkkQdi.DTnItSklSr8;dl4JcBnxu0X.VW51Ep3auXR;uiU7PDbqn74.DTnItSklSr8;QKvDccYJ18W.VW51Ep3auXR;FyLIhJocwlR.DTnItSklSr8`,
     default_period: 'LAST_3_MONTHS',
     default_org_unit: 'HfVjCurKxh2',
     default_org_unit_level: 1,
@@ -919,7 +919,45 @@ let fp = [
     default_org_unit: 'HfVjCurKxh2',
     default_org_unit_level: 5,
     Notes: ''
-  }
+  },
+
+  
+	// {
+	//   page: 'National Summary',
+	//   level: 'National',
+	//   name: 'National Summary',
+	//   id: 'national__summary_facility_mos',
+	//   local_url: `${APP_BASE_URL}/api/national/summary/facility-mos`,
+	//   url: `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:vBtxrMus3Qf;E5ehG5Qmk5Y;KWavo9MWGBT;z5rdAD1Z9rH;ZbLcoTanQnP;Zz6gJ3FAKjr;xvxsOVLQWqh;HP1u3rO8rM7;DWMK6mvF9LH;H7CkBPdObiC;CSjSohGxnxq;KucK2GDza8l;VInUQaQtrrt;J4Pzryd1EYO;Eut7pOhH1P6;iORtndG8LNB;jVgFM6chs6l;t5DOInBnxIC;qBORbeFTtW3;nSfd4EGB2ca`,
+	//   default_period: 'LAST_MONTH',
+	//   default_org_unit: 'HfVjCurKxh2',
+	//   default_org_unit_level: '',
+	//   Notes: ''
+	// },
+  {
+	  page: 'National SOH Comparison',
+	  level: 'National',
+	  name: 'SOH Comparison',
+	  id: 'national__soh_comparison',
+	  local_url: `${APP_BASE_URL}/api/national/sohcomparison`,
+	  url: `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:m1U1MJZoK9Q.QvctQfKAQn3;CxoGtEwF44m.QvctQfKAQn3;nGR47qCgOfQ.QvctQfKAQn3;RXJmB0afFhv.QvctQfKAQn3;QZpWVTFZEE7.QvctQfKAQn3;WLS1R40DxXt.QvctQfKAQn3;CH3syaQ3wJ3.QvctQfKAQn3;ri9reJBhA2Y.QvctQfKAQn3;YSjqRqkkQdi.QvctQfKAQn3;uiU7PDbqn74.QvctQfKAQn3;hH9gmEmEhH4.i9dqmLZr7fd;bGGT0F7iRxt.i9dqmLZr7fd;qaBPR9wbWku.i9dqmLZr7fd;AR7RhdC90IV.i9dqmLZr7fd;tfPZ6sGgh4q.i9dqmLZr7fd;XgJfT71Unkn.i9dqmLZr7fd;MsS41X1GEFr.i9dqmLZr7fd;J6qnTev1LXw.i9dqmLZr7fd;AVDzuypqGt9.i9dqmLZr7fd;dl4JcBnxu0X.i9dqmLZr7fd;i3ZaXmQj0jL.HMTuusGLTUj;yqVMu78CyA2.HMTuusGLTUj;BIte0mKNt8v.HMTuusGLTUj;zgKc5Q0QOb6.HMTuusGLTUj;dxx7yqS7BpR.HMTuusGLTUj;DtcvkNfutb4.HMTuusGLTUj;WJFb0MNwc3u.HMTuusGLTUj;mlMAWuMkAzX.HMTuusGLTUj;r9qspMRFu7n.HMTuusGLTUj;ZbzBYUMlTJK.HMTuusGLTUj;CSjSohGxnxq;KucK2GDza8l;VInUQaQtrrt;J4Pzryd1EYO;Eut7pOhH1P6;iORtndG8LNB;jVgFM6chs6l;t5DOInBnxIC;qBORbeFTtW3;nSfd4EGB2ca;vBtxrMus3Qf;E5ehG5Qmk5Y;KWavo9MWGBT;z5rdAD1Z9rH;HP1u3rO8rM7;ZbLcoTanQnP;Zz6gJ3FAKjr;xvxsOVLQWqh;DWMK6mvF9LH;H7CkBPdObiC`,
+	  default_period: 'LAST_MONTH',
+	  default_org_unit: 'HfVjCurKxh2',
+	  default_org_unit_level: '',
+	  Notes: ''
+	},
+  {
+	  page: 'Issues vs Receipts',
+	  level: 'National',
+	  name: 'Issues vs Receipts',
+	  id: 'national__issues_vs_receipts',
+	  local_url: `${APP_BASE_URL}/api/national/issuesvsreceipts`,
+	  url: `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:hH9gmEmEhH4.VW51Ep3auXR;m1U1MJZoK9Q.DTnItSklSr8;bGGT0F7iRxt.VW51Ep3auXR;CxoGtEwF44m.DTnItSklSr8;qaBPR9wbWku.VW51Ep3auXR;nGR47qCgOfQ.DTnItSklSr8;AR7RhdC90IV.VW51Ep3auXR;RXJmB0afFhv.DTnItSklSr8;tfPZ6sGgh4q.VW51Ep3auXR;ri9reJBhA2Y.DTnItSklSr8;XgJfT71Unkn.VW51Ep3auXR;QZpWVTFZEE7.DTnItSklSr8;MsS41X1GEFr.VW51Ep3auXR;WLS1R40DxXt.DTnItSklSr8;J6qnTev1LXw.VW51Ep3auXR;CH3syaQ3wJ3.DTnItSklSr8;AVDzuypqGt9.VW51Ep3auXR;YSjqRqkkQdi.DTnItSklSr8;dl4JcBnxu0X.VW51Ep3auXR;uiU7PDbqn74.DTnItSklSr8;QKvDccYJ18W.VW51Ep3auXR;FyLIhJocwlR.DTnItSklSr8`,
+	  default_period: 'LAST_3_MONTHS',
+	  default_org_unit: 'HfVjCurKxh2',
+	  default_org_unit_level: '',
+	  Notes: ''
+	}
 ];
 
 module.exports = fp;
