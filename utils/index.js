@@ -7,7 +7,7 @@ let justFetch = async (endpoint, postoptions) => {
     //do not append this for dataStore requests
     endpoint += '&displayProperty=NAME&outputIdScheme=UID';
   }
-  if (endpoint == null || endpoint.length < 4) {
+  if (endpoint == null || endpoint.length < 1) {
     return { error: true, type: 'url', message: 'Invalid endpoint URL' };
   }
   let options = postoptions || {};
