@@ -329,14 +329,14 @@ hiv4.endpoints = hiv_adult_preps
 // HIV----- />
 
 // <----HIV
-let hiv4 = {}
-hiv4.name = "HIV - Lab Commodities"
-hiv4.id = 4.5
-hiv4.thresholds = {"national": [9,15], "subnational": [2,3], "kemsa": [6,9]}
-hiv4.active = true
-hiv4.owner = "NASCOP, MoH"
-hiv4.pages = getPages(hiv_lab_preps)
-hiv4.endpoints = hiv_lab_preps
+let hiv5 = {}
+hiv5.name = "HIV - Lab Commodities"
+hiv5.id = 4.5
+hiv5.thresholds = {"national": [9,15], "subnational": [2,3], "kemsa": [6,9]}
+hiv5.active = true
+hiv5.owner = "NASCOP, MoH"
+hiv5.pages = getPages(hiv_lab_preps)
+hiv5.endpoints = hiv_lab_preps
 // HIV----- />
 
 // <----Nutrition
@@ -367,6 +367,7 @@ programs.push(hiv)
 programs.push(hiv2)
 programs.push(hiv3)
 programs.push(hiv4)
+programs.push(hiv5)
 // programs.push(tb)
 programs.push(emms)
 programs.push(nutr)
