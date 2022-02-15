@@ -1,5 +1,5 @@
-let DHIS_USERNAME = process.env.DHIS_USERNAME;
-let DHIS_PASSWORD = process.env.DHIS_PASSWORD;
+let DHIS_USERNAME = "rosaga"
+let DHIS_PASSWORD = "Kenya@2019";
 let APP_ENV = process.env.APP_ENV;
 
 let justFetch = async (endpoint, postoptions) => {
