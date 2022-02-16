@@ -2,9 +2,9 @@
 let {programs} = require('../../config/index')
 let {justFetch, appendQueriesToUrl} = require('../../utils/index')
 
-let fetchaccountability = async (ou,level,pe,prog) => {
+let fetchriskparameters = async (ou,level,pe,prog) => {
     let endpoints = programs.find(prg => prg.id == prog).endpoints
-    let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__riskparameters")[0]
+    let {url, default_org_unit, default_org_unit_level, default_period} = endpoints.filter(ept => ept.id == "county__risk_parameters")[0]
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
     try {
@@ -16,4 +16,4 @@ let fetchaccountability = async (ou,level,pe,prog) => {
     }
 }
 
-module.exports = {fetchaccountability}
+module.exports = {fetchriskparameters}
