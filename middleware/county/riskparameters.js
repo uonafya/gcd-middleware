@@ -8,8 +8,12 @@ let fetchriskparameters = async (ou,level,pe,prog) => {
     let defaults = {default_pe: default_period, default_ou: default_org_unit, default_lvl: default_org_unit_level}
     let query = {pe, ou, level}
     try {
+        console.log("----------->>> url "+url);
+        console.log("----------->>> query"+ query);
+        console.log("-------->>> defaults"+defaults);
         let final_url = appendQueriesToUrl(url, query, defaults)
         let sc = await justFetch(final_url)
+        console.log("---------->>> "+final_url);
         return sc
     } catch (er) {
         return {error: true, ...er}
