@@ -235,18 +235,17 @@ const getPages = (end_points)=>{
 		  "ouFilter": true,		  
 		  "Notes": ""
 		},
-		// {
-		//   "page": "Issues vs Receipts",
-		//   "level": "National",
-		//   "name": "Issues vs Receipts",
-		//   "id": "national__issues_vs_receipts",
-		//   "route": `/national/issues-receipts`,
-		//   "endpoints": end_points.filter(pg=>pg.page=="Issues vs Receipts"),
-		//   "active": end_points.filter(pg=>pg.page=="Issues vs Receipts").length>0,
-		//   "periodFilter": "range",
-		//   "ouFilter": true,		
-		//   "Notes": ""
-		// }
+		{
+			"page": "Risk Parameters",
+			"level": "National",
+			"name": "Risk Parameters",
+			"id": "national__pending_shipments",
+			"route": `/national/pending-shipments`,
+			"endpoints": end_points.filter(pg=>pg.page=="Pending Shipments"),
+			"active": end_points.filter(pg=>pg.page=="Pending Shipments").length>0,
+			"ouFilter": true,		  
+			"Notes": ""
+		  },
 	  ]
 	return pages
 }
