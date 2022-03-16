@@ -2,7 +2,7 @@ let express = require('express');
 let router = express.Router()
 let {getApiDocs} = require('../../utils/index')
 let {fetchDefaults} = require('../../middleware/common')
-let {fetchAllSS, fetchOne} = require('../../middleware/county/riskparameters')
+let {fetchOne} = require('../../middleware/county/riskparameters')
 
 router.get('/', (req, res) => {
     let docs = getApiDocs(router)
