@@ -44,8 +44,8 @@ const getPages = (end_points)=>{
 		  "name": "Stock Status Map",
 		  "id": "county__all_commodities_map",
 		  "route": `/ss/map`,
-		  "endpoints": end_points.filter(pg=>pg.page=="Stock status all"),
-		  "active": end_points.filter(pg=>pg.page=="Stock status all").length>0,
+		  "endpoints": end_points.filter(pg=>pg.page=="Stock status map"),
+		  "active": end_points.filter(pg=>pg.page=="Stock status map").length>0,
 		  "ouFilter": false,	  
 		  "Notes": ""
 		},
@@ -169,6 +169,17 @@ const getPages = (end_points)=>{
 		  "Notes": ""
 		},
 		{
+			"page": "Expiries",
+			"level": "County",
+			"name": "Expiries",
+			"id": "county__expiries",
+			"route": `/expiries`,
+			"endpoints": end_points.filter(pg=>pg.page=="Expiries"),
+			"active": end_points.filter(pg=>pg.page=="Expiries").length>0,
+			"ouFilter": true,		  
+			"Notes": ""
+		  },
+		{
 		  "page": "Issues vs Receipts",
 		  "level": "County",
 		  "name": "Issues vs Receipts",
@@ -203,13 +214,13 @@ const getPages = (end_points)=>{
 		  "Notes": ""
 		},
 		{
-		  "page": "National Summary",
+		  "page": "National Stocks",
 		  "level": "National",
 		  "name": "KEMSA Summary",
 		  "id": "national__summary",
 		  "route": `/national/summary`,
-		  "endpoints": end_points.filter(pg=>pg.page=="National Summary"),
-		  "active": end_points.filter(pg=>pg.page=="National Summary").length>0,
+		  "endpoints": end_points.filter(pg=>pg.page=="National Stocks"),
+		  "active": end_points.filter(pg=>pg.page=="National Stocks").length>0,
 		  "ouFilter": true,		  
 		  "Notes": ""
 		},

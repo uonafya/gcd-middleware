@@ -14,5 +14,6 @@ router.use('/supplychain', require('./supplychain'))
 router.use('/hffollowup', require('./hffollowup'))
 router.use('/accountability', require('./accountability'))
 router.use('/issuesvsreceipts', require('./issuesvsreceipts'))
+router.use('/expiries', require('./expiries'))
 
 module.exports = router;

@@ -3,6 +3,7 @@ let DHIS_PASSWORD = process.env.DHIS_PASSWORD;
 let APP_ENV = process.env.APP_ENV;
 
 let justFetch = async (endpoint, postoptions) => {
+  console.log("+++++++ running justFetch("+endpoint+") with ", postoptions)
   if (endpoint.search('dataStore') < 1) {
     //do not append this for dataStore requests
     endpoint += '&displayProperty=NAME&outputIdScheme=UID';

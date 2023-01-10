@@ -24,9 +24,9 @@ router.get('/mos-by-commodity/:ou?/:level?/:pe?', async (req, res) => {
     let {ou, level, pe } = req.params
     let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
     let defaults = await fetchDefaults(prog)
-    if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
+    if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id || 'HfVjCurKxh2'}
     if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
-    if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
+    if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period || '202005'}
     let fetchedData = await fetchMOS(ou, level, pe,prog)
     res.json({ fetchedData});
 });

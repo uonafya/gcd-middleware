@@ -93,9 +93,9 @@ router.get('/custom/:dx?/:ou?/:level?/:pe?', async (req, res) => {
     let {dx, ou, level, pe } = req.params
     let prapplo = req.app.locals.program; let prog = req.query.program || prapplo
     let defaults = await fetchDefaults(prog) 
-    if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id}
-    if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period}
-    if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level}
+    if(ou === undefined || ou === null || ou === " " || ou === '~'){ou = defaults.dataViewOrganisationUnits[0].id || 'HfVjCurKxh2'}
+    if(level === undefined || level === null || level === " " || level === '~'){level = defaults.level || 1}
+    if(pe === undefined || pe === null || pe === " " || pe === '~'){pe = defaults.period || '202005'}
     let fetchedData = await fetchCustom(dx,ou,level,pe)
     res.json({ fetchedData});
 });

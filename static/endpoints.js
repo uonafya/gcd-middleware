@@ -194,11 +194,22 @@ let endpoints = [
     "Notes": ""
   },
   {
+    "page": "Stock status map",
+    "level": "County",
+    "name": "All commodities",
+    "id": "county__all_commodities_map",
+    "url": `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:jfUzb86mBSP.miM6uIJ2cWx;HwvUHnslwbh.miM6uIJ2cWx;OLYLVMDHEj8.miM6uIJ2cWx;UJeKVZzAnfS.miM6uIJ2cWx;naztfZrbMtd.miM6uIJ2cWx;EtG9ozt2joA.miM6uIJ2cWx;Umi8ZsiqBHw.miM6uIJ2cWx;xZs759QOGvh.miM6uIJ2cWx;HfGVoCZAwtd;nK8sqMAeQHY;ZcngDQJKiEg;wOKbEd8Dbi3;SSARcWY2Ge1;AX1co0SXobM;UUNwkYQhYgX;gEDxkvJmRAm`,
+    "default_period": "LAST_MONTH",
+    "default_org_unit": "hfVjCurKxh2",
+    "default_org_unit_level": "",
+    "Notes": ""
+  },
+  {
     "page": "Reporting Rate",
     "level": "County",
     "name": "Reporting Rate Trend",
     "id": "county__reporting_rate_trend",
-    "url": `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:JPaviRmSsJW.REPORTING_RATE;JPaviRmSsJW.REPORTING_RATE_ON_TIME`,
+    "url": `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:JPaviRmSsJW.REPORTING_RATE;JPaviRmSsJW.REPORTING_RATE_ON_TIME;hX2FiY0TIsk.REPORTING_RATE`,
     "default_period": "LAST_12_MONTHS",
     "default_org_unit": "HfVjCurKxh2",
     "default_org_unit_level": 1,
@@ -317,6 +328,17 @@ let endpoints = [
     "Notes": ""
   },
   {
+    "page": "Expiries",
+    "level": "County",
+    "name": "Expiries",
+    "id": "county__expiries",
+    "url": `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:BnGDrFwyQp9.HWtHCLAwprR;c0MB4RmVjxk.HWtHCLAwprR;qnZmg5tNSMy.HWtHCLAwprR;gVp1KSFI69G.HWtHCLAwprR;iOARK31NdLp.HWtHCLAwprR;imheYfA1Kiw.HWtHCLAwprR;cPlWFYbBacW.HWtHCLAwprR;BnGDrFwyQp9.CckV73xy6HB;gVp1KSFI69G.CckV73xy6HB;qnZmg5tNSMy.CckV73xy6HB;c0MB4RmVjxk.CckV73xy6HB;iOARK31NdLp.CckV73xy6HB;imheYfA1Kiw.CckV73xy6HB;cPlWFYbBacW.CckV73xy6HB;BnGDrFwyQp9.yuvCdaFqdCW;c0MB4RmVjxk.yuvCdaFqdCW;qnZmg5tNSMy.yuvCdaFqdCW;gVp1KSFI69G.yuvCdaFqdCW;iOARK31NdLp.yuvCdaFqdCW;imheYfA1Kiw.yuvCdaFqdCW;cPlWFYbBacW.yuvCdaFqdCW;BnGDrFwyQp9.w77uMi1KzOH;c0MB4RmVjxk.w77uMi1KzOH;qnZmg5tNSMy.w77uMi1KzOH;gVp1KSFI69G.w77uMi1KzOH;iOARK31NdLp.w77uMi1KzOH;imheYfA1Kiw.w77uMi1KzOH;cPlWFYbBacW.w77uMi1KzOH;BnGDrFwyQp9.unVIt2C0cdW;c0MB4RmVjxk.unVIt2C0cdW;qnZmg5tNSMy.unVIt2C0cdW;gVp1KSFI69G.unVIt2C0cdW;iOARK31NdLp.unVIt2C0cdW;imheYfA1Kiw.unVIt2C0cdW;cPlWFYbBacW.unVIt2C0cdW;BnGDrFwyQp9.rPAsF4cpNxm;c0MB4RmVjxk.rPAsF4cpNxm;qnZmg5tNSMy.rPAsF4cpNxm;gVp1KSFI69G.rPAsF4cpNxm;iOARK31NdLp.rPAsF4cpNxm;imheYfA1Kiw.rPAsF4cpNxm;cPlWFYbBacW.rPAsF4cpNxm`,
+    "default_period": "LAST_MONTH",
+    "default_org_unit": "HfVjCurKxh2",
+    "default_org_unit_level": 1,
+    "Notes": ""
+  },
+  {
     "page": "Issues vs Receipts",
     "level": "County",
     "name": "Issues vs Receipts",
@@ -383,16 +405,17 @@ let endpoints = [
     "Notes": ""
   },
   {
-    "page": "National Summary",
-    "level": "National",
-    "name": "KEMSA Summary",
-    "id": "national__kemsa_summary",
-    "url": `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:Aui7lNDOsSF.svPoNZ3VkVx;Aui7lNDOsSF.G3eMNWySdZq;Aui7lNDOsSF.Q9rPivWnD4K;Aui7lNDOsSF.HMTuusGLTUj;Aui7lNDOsSF.sEiFVVjqcfg;Kkh8ZtRWFmX.svPoNZ3VkVx;Kkh8ZtRWFmX.G3eMNWySdZq;Kkh8ZtRWFmX.Q9rPivWnD4K;Kkh8ZtRWFmX.HMTuusGLTUj;Kkh8ZtRWFmX.sEiFVVjqcfg;iZe9QHpC31Y.svPoNZ3VkVx;iZe9QHpC31Y.G3eMNWySdZq;iZe9QHpC31Y.Q9rPivWnD4K;iZe9QHpC31Y.HMTuusGLTUj;iZe9QHpC31Y.sEiFVVjqcfg;E7M967QxxFc.svPoNZ3VkVx;E7M967QxxFc.G3eMNWySdZq;E7M967QxxFc.Q9rPivWnD4K;E7M967QxxFc.HMTuusGLTUj;E7M967QxxFc.sEiFVVjqcfg;Wupc6TOJhcK.svPoNZ3VkVx;Wupc6TOJhcK.G3eMNWySdZq;Wupc6TOJhcK.Q9rPivWnD4K;Wupc6TOJhcK.HMTuusGLTUj;Wupc6TOJhcK.sEiFVVjqcfg;lZCba7Ijb7x.svPoNZ3VkVx;lZCba7Ijb7x.G3eMNWySdZq;lZCba7Ijb7x.Q9rPivWnD4K;lZCba7Ijb7x.HMTuusGLTUj;lZCba7Ijb7x.sEiFVVjqcfg;ALnonKSyDct.svPoNZ3VkVx;ALnonKSyDct.G3eMNWySdZq;ALnonKSyDct.Q9rPivWnD4K;ALnonKSyDct.HMTuusGLTUj;ALnonKSyDct.sEiFVVjqcfg`,
-    "default_period": "LAST_MONTH",
-    "default_org_unit": "HfVjCurKxh2",
-    "default_org_unit_level": "",
-    "Notes": ""
-  },
+	  page: 'National Stocks',
+	  level: 'National',
+	  name: 'National Stocks',
+	  id: 'national__kemsa_summary',
+	  local_url: `${APP_BASE_URL}/api/national/summary/kemsasummary`,
+	  url: `${DHIS_BASE_API_URL}/analytics.json?dimension=dx:Aui7lNDOsSF.svPoNZ3VkVx;Aui7lNDOsSF.G3eMNWySdZq;Aui7lNDOsSF.Q9rPivWnD4K;Aui7lNDOsSF.HMTuusGLTUj;Aui7lNDOsSF.sEiFVVjqcfg;Kkh8ZtRWFmX.svPoNZ3VkVx;Kkh8ZtRWFmX.G3eMNWySdZq;Kkh8ZtRWFmX.Q9rPivWnD4K;Kkh8ZtRWFmX.HMTuusGLTUj;Kkh8ZtRWFmX.sEiFVVjqcfg;iZe9QHpC31Y.svPoNZ3VkVx;iZe9QHpC31Y.G3eMNWySdZq;iZe9QHpC31Y.Q9rPivWnD4K;iZe9QHpC31Y.HMTuusGLTUj;iZe9QHpC31Y.sEiFVVjqcfg;E7M967QxxFc.svPoNZ3VkVx;E7M967QxxFc.G3eMNWySdZq;E7M967QxxFc.Q9rPivWnD4K;E7M967QxxFc.HMTuusGLTUj;E7M967QxxFc.sEiFVVjqcfg;Wupc6TOJhcK.svPoNZ3VkVx;Wupc6TOJhcK.G3eMNWySdZq;Wupc6TOJhcK.Q9rPivWnD4K;Wupc6TOJhcK.HMTuusGLTUj;Wupc6TOJhcK.sEiFVVjqcfg;lZCba7Ijb7x.svPoNZ3VkVx;lZCba7Ijb7x.G3eMNWySdZq;lZCba7Ijb7x.Q9rPivWnD4K;lZCba7Ijb7x.HMTuusGLTUj;lZCba7Ijb7x.sEiFVVjqcfg;ALnonKSyDct.svPoNZ3VkVx;ALnonKSyDct.G3eMNWySdZq;ALnonKSyDct.Q9rPivWnD4K;ALnonKSyDct.HMTuusGLTUj;ALnonKSyDct.sEiFVVjqcfg;ZiLVFNkjwdB.svPoNZ3VkVx;ZiLVFNkjwdB.G3eMNWySdZq;ZiLVFNkjwdB.Q9rPivWnD4K;ZiLVFNkjwdB.HMTuusGLTUj;ZiLVFNkjwdB.sEiFVVjqcfg`,
+	  default_period: 'LAST_MONTH',
+	  default_org_unit: 'HfVjCurKxh2',
+	  default_org_unit_level: '',
+	  Notes: ''
+	},
   {
     "page": "National SOH Comparison",
     "level": "National",
