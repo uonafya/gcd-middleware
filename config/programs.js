@@ -246,6 +246,17 @@ const getPages = (end_points)=>{
 		  "ouFilter": true,		  
 		  "Notes": ""
 		},
+		{
+			"page": "Risk Parameters",
+			"level": "County",
+			"name": "Risk Parameters",
+			"id": "county__risk_parameters",
+			"route": `/riskparameters`,
+			"endpoints": end_points.filter(pg=>pg.page=="Risk Parameters"),
+			"active": end_points.filter(pg=>pg.page=="Risk Parameters").length>0,
+			"ouFilter": true,
+			"Notes": ""
+		},
 		// {
 		//   "page": "Issues vs Receipts",
 		//   "level": "National",
